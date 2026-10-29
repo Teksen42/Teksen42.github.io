@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yasir Lokman Teksen — Software Student</title>
+<meta name="description" content="Software student at Aalborg University Copenhagen. Co-developer of Kvixa and Weft, nine certificates in 2026. JavaScript, Node.js, SQL, C#, testing and IT support.">
+<meta name="theme-color" content="#4338ca" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0d0f1a" media="(prefers-color-scheme: dark)">
+<!-- monogram favicon, inline so there is no extra request and nothing to 404 -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%234338ca'/%3E%3Ctext x='32' y='40' font-family='Helvetica,Arial,sans-serif' font-size='22' font-weight='800' fill='%23f5f6fb' text-anchor='middle'%3EYLT%3C/text%3E%3C/svg%3E">
+<link rel="canonical" href="https://teksen42.github.io/">
+<!-- social card: without these the link renders as a blank grey box -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://teksen42.github.io/">
+<meta property="og:site_name" content="Yasir Lokman Teksen">
+<meta property="og:title" content="Yasir Lokman Teksen — Software Student">
+<meta property="og:description" content="Software student at Aalborg University Copenhagen. Co-developer of Kvixa, the ordering platform restaurants take their orders on, and of Weft on Azure. Nine certificates in 2026.">
+<meta property="og:image" content="https://teksen42.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Yasir Lokman Teksen, software student in Copenhagen.">
+<meta property="og:locale" content="en_DK">
+<meta property="og:locale:alternate" content="da_DK">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Yasir Lokman Teksen — Software Student">
+<meta name="twitter:description" content="Software student in Copenhagen. Co-developer of Kvixa and Weft. Nine certificates in 2026.">
+<meta name="twitter:image" content="https://teksen42.github.io/og.png">
+
+<script>
+  /* runs before first paint so a dark-mode visitor never sees a white flash */
+  (function(){
+    var t = null;
+    try { t = localStorage.getItem('theme'); } catch(e){}
+    if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.dataset.theme = t;
+  })();
+</script>
+
+<link rel="preload" href="assets/fonts/schibsted-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css?v=5">
+</head>
+<body>
+
+<!-- boot stinger: a terminal types, then the site is revealed. Skippable, once per session -->
+<noscript><style>#boot{display:none}html:not(.booted){overflow:auto}</style></noscript>
+<div id="boot" role="dialog" aria-label="Intro terminal">
+  <div class="term">
+    <div class="term-bar">
+      <button class="tl r" id="term-close" aria-label="Close terminal"></button><i class="tl y"></i><i class="tl g"></i>
+      <span>yasir@copenhagen — zsh</span>
+    </div>
+    <pre id="term-out"></pre>
+  </div>
+</div>
+
+<div id="bar"></div>
+
+<nav id="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Yasir Lokman Teksen"><span class="ini" aria-hidden="true">YLT</span><span class="full" aria-hidden="true">Yasir Lokman Teksen</span></a>
+    <div class="navlinks" id="navlinks">
+      <a href="#about" data-i18n="nav_about">About</a>
+      <a href="#work" data-i18n="nav_work">Work</a>
+      <a href="#experience" data-i18n="nav_xp">Experience</a>
+      <a href="#skills" data-i18n="nav_skills">Skills</a>
+      <a href="#certificates" data-i18n="nav_certs">Certificates</a>
+      <a href="#contact" data-i18n="nav_contact">Contact</a>
+      <button class="lang" id="langbtn" aria-label="Switch language"><span id="l-en" class="on">EN</span> / <span id="l-da">DA</span></button>
+      <button class="theme" id="themebtn" aria-label="Toggle dark mode"><svg class="ic-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.2M12 19.8V22M2 12h2.2M19.8 12H22M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6"/></svg><svg class="ic-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+    </div>
+    <button class="burger" id="burger" aria-label="Menu"><i></i><i></i><i></i></button>
+  </div>
+</nav>
+<div class="mobile" id="mobile">
+  <a href="#about" data-i18n="nav_about">About</a>
+  <a href="#work" data-i18n="nav_work">Work</a>
+  <a href="#experience" data-i18n="nav_xp">Experience</a>
+  <a href="#skills" data-i18n="nav_skills">Skills</a>
+      <a href="#certificates" data-i18n="nav_certs">Certificates</a>
+  <a href="#contact" data-i18n="nav_contact">Contact</a>
+  <div class="mobile-btns">
+    <button class="lang" id="langbtn2" aria-label="Switch language"><span id="l2-en" class="on">EN</span> / <span id="l2-da">DA</span></button>
+    <button class="theme" id="themebtn2" aria-label="Toggle dark mode"><svg class="ic-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.2M12 19.8V22M2 12h2.2M19.8 12H22M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6"/></svg><svg class="ic-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+  </div>
+</div>
+
+<!-- ============ scene 1 · hero. name rises on load, recedes as you scroll ============ -->
+<section class="scene hero" id="top" data-scene="pin">
+  <div class="stage">
+    <div class="wrap hero-inner">
+      <div class="hero-text">
+        <h1 aria-label="Yasir Lokman Teksen">
+          <span class="ln"><span>Yasir&nbsp;Lokman</span></span>
+          <span class="ln"><span><em>Teksen</em></span></span>
+        </h1>
+        <p class="lede" data-i18n="lede">Software student at Aalborg University Copenhagen. I build web applications and databases, test what I build, and explain technology so people understand it. I co-developed <strong>Kvixa</strong>, the ordering platform restaurants take their orders on, and worked on backend, frontend and tests in <strong>Weft</strong>, a planning app running on Azure.</p>
+        <div class="meta">
+          <span data-i18n="meta_loc">Ishøj, Greater Copenhagen</span>
+          <a href="mailto:yasirteksen@hotmail.com">yasirteksen@hotmail.com</a>
+          <a href="https://github.com/Teksen42" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/yasirteksen" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+      <div class="portrait">
+        <img src="assets/portrait.webp" alt="Portrait of Yasir Lokman Teksen" width="660" height="880">
+        <span class="p-cap"><b data-i18n="pcap_1">Software student</b><span data-i18n="pcap_2">Aalborg University Copenhagen</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ scene 2 · the claim, revealed word by word ============ -->
+<section class="scene claim" id="about" data-scene="pin">
+  <div class="stage">
+    <div class="wrap">
+      <p class="claim-text" data-words data-i18n="claim">I build software with the people who will use it, test it until it works, and explain it so they understand it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ scene 3 · three numbers that can be checked ============ -->
+<section class="numbers" data-scene="view">
+  <div class="wrap numbers-row">
+    <div class="num"><div class="n"><span data-count="12">0</span><small> (A)</small></div><div class="l" data-i18n="n1">Second semester project, the top grade on the Danish scale</div></div>
+    <div class="num"><div class="n"><span data-count="9">0</span></div><div class="l" data-i18n="n2">Certificates completed in 2026, from Codecademy and Aalborg University</div></div>
+    <div class="num"><div class="n"><span data-count="4">0</span></div><div class="l" data-i18n="n3">Years at Bilka, now closing manager and training new colleagues</div></div>
+  </div>
+</section>
+
+<!-- ============ scene 4b · weft: team project with Jawad, same pinned pattern ============ -->
+<section class="scene weft" id="work" data-scene="pin" data-steps="3">
+  <div class="stage">
+    <div class="wrap gathr-grid">
+      <div class="gathr-copy">
+        <div class="kicker">
+          <img class="wmark" src="data:image/webp;base64,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" alt="" width="26" height="19">
+          <span>weft.azurewebsites.net</span>
+          <span class="pill-new" data-i18n="team">Team project</span>
+        </div>
+        <h2>Weft</h2>
+        <div class="steps">
+          <div class="step" data-step="0" data-shot="0">
+            <h3 data-i18n="w1_h">One plan for a busy week</h3>
+            <p data-i18n="w1_p">Work, study and training sit in different places. Weft keeps them in one plan and rearranges it when something moves. Built together with Jawad Qayyum, a fellow software student.</p>
+          </div>
+          <div class="step" data-step="1" data-shot="1">
+            <h3 data-i18n="w2_h">My part</h3>
+            <p data-i18n="w2_p">I worked on the backend in C# and .NET, on the frontend, and on testing the features we built.</p>
+          </div>
+          <div class="step" data-step="2" data-shot="1">
+            <h3 data-i18n="w3_h">Running on Azure</h3>
+            <p data-i18n="w3_p">The API runs on Azure App Service with Azure SQL and Entra ID sign in. The platform is live, and the product features are being finished before release.</p>
+          </div>
+        </div>
+        <div class="step-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="ptags" data-i18n="w_tags">C# · .NET 8 · Azure · Frontend · Testing</div>
+        <div class="plinks">
+          <a class="plink" href="https://weft.azurewebsites.net" target="_blank" rel="noopener"><svg class="ic ic-globe" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm6.9 6h-2.95a15.6 15.6 0 00-1.38-3.56A8.03 8.03 0 0118.9 8zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14a7.9 7.9 0 010-4h3.38a16.5 16.5 0 000 4H4.26zm.84 2h2.95c.3 1.26.76 2.46 1.38 3.56A7.99 7.99 0 015.1 16zm2.95-8H5.1a7.99 7.99 0 014.33-3.56A15.6 15.6 0 008.05 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82A13.7 13.7 0 0112 19.96zM14.34 14H9.66a14.5 14.5 0 010-4h4.68a14.5 14.5 0 010 4zm.28 5.56c.62-1.1 1.08-2.3 1.38-3.56h2.95a7.99 7.99 0 01-4.33 3.56zM16.36 14a16.5 16.5 0 000-4h3.38a7.9 7.9 0 010 4h-3.38z"/></svg><span data-i18n="visit_site">Website</span></a>
+        </div>
+      </div>
+      <div class="gathr-visual weft-visual">
+        <div class="panel3d">
+          <div class="browser">
+            <div class="browser-bar"><i></i><i></i><i></i><span>weft.azurewebsites.net</span></div>
+            <div class="shots">
+              <img class="shot on" data-shot="0" src="assets/weft.webp" alt="The Weft landing page" width="1400" height="825" loading="lazy">
+              <img class="shot" data-shot="1" src="assets/weft-app.webp" alt="The Weft app: a day and a week of one merged plan" width="1400" height="825" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ scene 4c · kvixa: the ordering platform, built with study friends ============ -->
+<section class="scene weft kvixa" id="kvixa" data-scene="pin" data-steps="3">
+  <div class="stage">
+    <div class="wrap gathr-grid">
+      <div class="gathr-copy">
+        <div class="kicker">
+          <span data-i18n="k_kvixa">Ordering platform · in daily use</span>
+          <span class="pill-new" data-i18n="team">Team project</span>
+        </div>
+        <h2>Kvixa</h2>
+        <div class="steps">
+          <div class="step" data-step="0" data-shot="0">
+            <h3 data-i18n="x1_h">Built with study friends</h3>
+            <p data-i18n="x1_p">Self-service kiosks and online ordering for grill bars, cafés and takeaway places. I co-developed it together with study friends.</p>
+          </div>
+          <div class="step" data-step="1" data-shot="1">
+            <h3 data-i18n="x2_h">One counter for everything</h3>
+            <p data-i18n="x2_p">Guests order at the kiosk in the shop or on the restaurant's own website, with one menu behind both. Every order lands on one counter screen, and pickup numbers show on an ordinary TV.</p>
+          </div>
+          <div class="step" data-step="2" data-shot="1">
+            <h3 data-i18n="x3_h">Launched in a real restaurant</h3>
+            <p data-i18n="x3_p">I helped launch it at Chicken N Chicken Waves in Greve, where the orders now come in through Kvixa every day.</p>
+          </div>
+        </div>
+        <div class="step-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="ptags" data-i18n="x_tags">Node.js · MongoDB · Kiosk · Online ordering · Team project</div>
+        <div class="plinks">
+          <a class="plink" href="https://kvixa.vestegnensit.dk/" target="_blank" rel="noopener"><svg class="ic ic-globe" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm6.9 6h-2.95a15.6 15.6 0 00-1.38-3.56A8.03 8.03 0 0118.9 8zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14a7.9 7.9 0 010-4h3.38a16.5 16.5 0 000 4H4.26zm.84 2h2.95c.3 1.26.76 2.46 1.38 3.56A7.99 7.99 0 015.1 16zm2.95-8H5.1a7.99 7.99 0 014.33-3.56A15.6 15.6 0 008.05 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82A13.7 13.7 0 0112 19.96zM14.34 14H9.66a14.5 14.5 0 010-4h4.68a14.5 14.5 0 010 4zm.28 5.56c.62-1.1 1.08-2.3 1.38-3.56h2.95a7.99 7.99 0 01-4.33 3.56zM16.36 14a16.5 16.5 0 000-4h3.38a7.9 7.9 0 010 4h-3.38z"/></svg><span data-i18n="visit_site">Website</span></a>
+          <a class="plink" href="https://chickenwaves.dk" target="_blank" rel="noopener"><svg class="ic ic-globe" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm6.9 6h-2.95a15.6 15.6 0 00-1.38-3.56A8.03 8.03 0 0118.9 8zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14a7.9 7.9 0 010-4h3.38a16.5 16.5 0 000 4H4.26zm.84 2h2.95c.3 1.26.76 2.46 1.38 3.56A7.99 7.99 0 015.1 16zm2.95-8H5.1a7.99 7.99 0 014.33-3.56A15.6 15.6 0 008.05 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82A13.7 13.7 0 0112 19.96zM14.34 14H9.66a14.5 14.5 0 010-4h4.68a14.5 14.5 0 010 4zm.28 5.56c.62-1.1 1.08-2.3 1.38-3.56h2.95a7.99 7.99 0 01-4.33 3.56zM16.36 14a16.5 16.5 0 000-4h3.38a7.9 7.9 0 010 4h-3.38z"/></svg><span>chickenwaves.dk</span></a>
+        </div>
+      </div>
+      <div class="gathr-visual weft-visual">
+        <div class="panel3d">
+          <div class="browser">
+            <div class="browser-bar"><i></i><i></i><i></i><span>kvixa.vestegnensit.dk</span></div>
+            <div class="shots">
+              <img class="shot on" data-shot="0" src="assets/kvixa.webp" alt="The Kvixa website: kiosk and online ordering in the restaurant's own design" width="1400" height="825" loading="lazy">
+              <img class="shot" data-shot="1" src="assets/kvixa-kiosk.webp" alt="A Kvixa kiosk menu and the matching ordering page on a phone" width="1400" height="825" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ scene 6 · projects, vertical scroll drives a horizontal track ============ -->
+<section class="scene hscroll" id="projects" data-scene="pin">
+  <div class="stage">
+    <div class="hs-head wrap">
+      <div class="kicker" data-i18n="k_proj">More projects</div>
+      <h2 data-i18n="h_proj">The rest of the shelf</h2>
+    </div>
+    <div class="track" id="track">
+      <article class="hcard">
+        <div class="top"><h3>AAU CPH Events</h3><span class="yr">2026</span></div>
+        <div class="role" data-i18n="a_role">Second semester project · group leader of six · graded 12</div>
+        <p data-i18n="a_p">A web prototype where students find, filter, save and sign up for events, and organisers manage them. Built on a survey of 94 people and interviews, tested in two rounds of usability tests, with 29 automated tests. I worked on the database, sign up and login, and the event features.</p>
+        <div class="tags"><a href="https://github.com/Teksen42/aau_cph_events" target="_blank" rel="noopener">GitHub</a> · Node.js · Express · MongoDB · Figma</div>
+      </article>
+      <article class="hcard">
+        <div class="top"><h3 data-i18n="p1_h">P1: Social events at AAU CPH</h3><span class="yr">2025</span></div>
+        <div class="role" data-i18n="p1_role">First semester project · group of seven · graded 10</div>
+        <p data-i18n="p1_p">A program in C that gives an overview of events for students at AAU Copenhagen. It reads events from a text file into structs, sorts them by time and price with qsort, filters by category and alcohol, searches by title and lets you add new events.</p>
+        <div class="tags">C · Structs · qsort · <span data-i18n="p1_t">File input</span></div>
+      </article>
+      <article class="hcard">
+        <div class="top"><h3 data-i18n="c1_h">Superliga SQL database</h3><span class="yr">2025</span></div>
+        <div class="role" data-i18n="c1_role">High school project in Informatik C · group of two · graded 12</div>
+        <p data-i18n="c1_p">A relational database of Danish Superliga data with nine tables, an ER diagram and normalisation to third normal form, plus SQL queries with joins, grouping and aggregation.</p>
+        <div class="tags"><a href="https://github.com/Teksen42/Superliga_SQL_Database_Project" target="_blank" rel="noopener">GitHub</a> · SQL · ER diagram · 3NF</div>
+      </article>
+      <article class="hcard">
+        <div class="top"><h3 data-i18n="c2_h">Coordination system</h3><span class="yr" data-i18n="yr_now">Autumn 2026</span></div>
+        <div class="role" data-i18n="c2_role">Third semester project · in progress</div>
+        <p data-i18n="c2_p">A system that will handle sign ups, status, hours and notifications for 2 coordinators and about 40 student ambassadors. I take part in the interviews, the survey, the requirements specification, the design and the first prototypes.</p>
+        <div class="tags">Java · PostgreSQL · React · TypeScript</div>
+      </article>
+      <article class="hcard">
+        <div class="top"><h3 data-i18n="c3_h">An overview built with AI</h3><span class="yr">2026</span></div>
+        <div class="role" data-i18n="c3_role">Personal automation</div>
+        <p data-i18n="c3_p">Used Claude to collect and sort more than 1,000 job listings into one overview of deadlines, hours and requirements, then checked the results against the original listings before relying on them.</p>
+        <div class="tags">Claude · <span data-i18n="c3_t">Automation · Checking the output</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ scene 7 · experience: the line draws as you scroll ============ -->
+<section class="xp-scene" id="experience">
+  <div class="wrap">
+    <div class="kicker" data-i18n="k_xp">Experience</div>
+    <h2 data-i18n="h_xp">Where I have worked</h2>
+    <div class="timeline" data-scene="view">
+      <div class="tl-line" aria-hidden="true"></div>
+      <div class="job hl" data-scene="view">
+        <span class="yr when now"><b>2024</b><i aria-hidden="true">→</i><b data-i18n="now">now</b></span>
+        <div>
+          <h3 data-i18n="j1_h">Closing Manager and Sales Assistant, Electronics</h3>
+          <div class="org">Bilka Waves, Greve (Salling Group)</div>
+          <p data-i18n="j1_p">Hold closing responsibility and help train new colleagues in products, procedures and customer service. Part time alongside my studies.</p>
+        </div>
+      </div>
+      <div class="job" data-scene="view">
+        <span class="yr when"><b>2023</b><i aria-hidden="true">→</i><b>2024</b></span>
+        <div>
+          <h3 data-i18n="j2_h">Sales Assistant, Electronics</h3>
+          <div class="org">Bilka Waves, Greve (Salling Group)</div>
+          <p data-i18n="j2_p">Advised customers on computers, phones and TVs, helped with basic troubleshooting and referred them to the service centre when needed. Used SAP for product look ups and stock status.</p>
+        </div>
+      </div>
+      <div class="job" data-scene="view">
+        <span class="yr when"><b>2022</b><i aria-hidden="true">→</i><b>2023</b></span>
+        <div>
+          <h3 data-i18n="j3_h">Cashier</h3>
+          <div class="org">Bilka Waves, Greve (Salling Group)</div>
+          <p data-i18n="j3_p">Served customers at the till and restarted the card terminal when it failed, so customers could pay again quickly.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ scene 8 · skills ============ -->
+<section class="skills-scene" id="skills">
+  <div class="wrap">
+    <div class="kicker" data-i18n="k_skills">Toolkit</div>
+    <h2 data-i18n="h_skills">What I work with</h2>
+    <div class="skills">
+      <div class="skillset" data-scene="view">
+        <h4 data-i18n="s1_h">Languages</h4>
+        <ul><li>Java</li><li>JavaScript</li><li>TypeScript</li><li>C</li><li>C#</li><li>Python</li><li>SQL</li><li>HTML</li><li>CSS</li></ul>
+      </div>
+      <div class="skillset" data-scene="view">
+        <h4 data-i18n="s2_h">Web and backend</h4>
+        <ul><li>Node.js</li><li>Express</li><li>React</li><li>.NET</li><li>MongoDB</li><li>PostgreSQL</li><li>Git</li><li>GitHub</li></ul>
+      </div>
+      <div class="skillset" data-scene="view">
+        <h4 data-i18n="s3_h">Data</h4>
+        <ul><li>SQL</li><li data-i18n="s3_1">ER diagrams</li><li data-i18n="s3_2">Normalisation (3NF)</li><li data-i18n="s3_3">Data integrity</li><li>Power BI</li></ul>
+      </div>
+      <div class="skillset" data-scene="view">
+        <h4 data-i18n="s4_h">Testing and UX</h4>
+        <ul><li data-i18n="s4_1">Automated tests</li><li data-i18n="s4_2">Usability testing</li><li data-i18n="s4_3">User interviews</li><li data-i18n="s4_4">Figma prototypes</li><li data-i18n="s4_5">User centred design</li></ul>
+      </div>
+      <div class="skillset" data-scene="view">
+        <h4 data-i18n="s5_h">AI tools</h4>
+        <ul><li>Claude</li><li>ChatGPT</li><li>Gemini</li><li>Copilot</li></ul>
+      </div>
+      <div class="skillset" data-scene="view">
+        <h4 data-i18n="s6_h">Support and IT</h4>
+        <ul><li>Windows 11</li><li>macOS</li><li>Android</li><li>iOS</li><li data-i18n="s6_1">Troubleshooting</li><li data-i18n="s6_2">Device setup</li><li>SAP</li><li>IP · TCP · HTTP</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ scene 8b · certificates ============ -->
+<section class="certs-scene" id="certificates">
+  <div class="wrap">
+    <div class="kicker" data-i18n="k_certs">Certificates</div>
+    <h2 data-i18n="h_certs">Nine certificates in 2026</h2>
+    <div class="certs">
+      <a class="cert" href="assets/certs/learn-sql.jpg" data-cert="learn-sql"><span class="thumb"><img src="assets/certs/learn-sql.jpg" alt="" loading="lazy" width="992" height="779"><span class="view" data-i18n="cert_view">View certificate</span></span><span class="ct"><span class="badge" data-i18n="b_data">Data</span><span class="date"><span data-i18n="d_sep23">23 Sep 2026</span></span></span><h3>Learn SQL</h3><span class="by">Codecademy</span></a>
+      <a class="cert" href="assets/certs/transform-tables-sql.jpg" data-cert="transform-tables-sql"><span class="thumb"><img src="assets/certs/transform-tables-sql.jpg" alt="" loading="lazy" width="992" height="779"><span class="view" data-i18n="cert_view">View certificate</span></span><span class="ct"><span class="badge" data-i18n="b_data">Data</span><span class="date"><span data-i18n="d_sep23">23 Sep 2026</span></span></span><h3>How to Transform Tables with SQL</h3><span class="by">Codecademy</span></a>
+      <a class="cert" href="assets/certs/learn-java-oop.jpg" data-cert="learn-java-oop"><span class="thumb"><img src="assets/certs/learn-java-oop.jpg" alt="" loading="lazy" width="992" height="779"><span class="view" data-i18n="cert_view">View certificate</span></span><span class="ct"><span class="badge" data-i18n="b_code">Programming</span><span class="date"><span data-i18n="d_sep23">23 Sep 2026</span></span></span><h3>Learn Java: Object-Oriented Programming</h3><span class="by">Codecademy</span></a>
+      <a class="cert" href="assets/certs/ux-designer.jpg" data-cert="ux-designer"><span class="thumb"><img src="assets/certs/ux-designer.jpg" alt="" loading="lazy" width="992" height="779"><span class="view" data-i18n="cert_view">View certificate</span></span><span class="ct"><span class="badge" data-i18n="b_ux">UX</span><span class="date"><span data-i18n="d_jul15">15 Jul 2026</span></span></span><h3>UX Designer Career Path</h3><span class="by">Codecademy</span></a>
+      <a class="cert" href="assets/certs/cybersecurity.jpg" data-cert="cybersecurity"><span class="thumb"><img src="assets/certs/cybersecurity.jpg" alt="" loading="lazy" width="992" height="779"><span class="view" data-i18n="cert_view">View certificate</span></span><span class="ct"><span class="badge" data-i18n="b_sec">Security</span><span class="date"><span data-i18n="d_jun24">24 Jun 2026</span></span></span><h3>Fundamentals of Cybersecurity Skill Path</h3><span class="by">Codecademy</span></a>
+      <a class="cert" href="assets/certs/power-bi.jpg" data-cert="power-bi"><span class="thumb"><img src="assets/certs/power-bi.jpg" alt="" loading="lazy" width="992" height="779"><span class="view" data-i18n="cert_view">View certificate</span></span><span class="ct"><span class="badge" data-i18n="b_data">Data</span><span class="date"><span data-i18n="d_jun23">23 Jun 2026</span></span></span><h3>BI Dashboards with Power BI</h3><span class="by">Codecademy</span></a>
+      <a class="cert" href="assets/certs/learn-javascript.jpg" data-cert="learn-javascript"><span class="thumb"><img src="assets/certs/learn-javascript.jpg" alt="" loading="lazy" width="992" height="779"><span class="view" data-i18n="cert_view">View certificate</span></span><span class="ct"><span class="badge" data-i18n="b_code">Programming</span><span class="date"><span data-i18n="d_mar30">30 Mar 2026</span></span></span><h3>Learn JavaScript</h3><span class="by">Codecademy</span></a>
+      <a class="cert" href="assets/certs/aau-prolab-generativ-ai.jpg" data-cert="aau-prolab-generativ-ai"><span class="thumb"><img src="assets/certs/aau-prolab-generativ-ai.jpg" alt="" loading="lazy" width="1404" height="992"><span class="view" data-i18n="cert_view">View certificate</span></span><span class="ct"><span class="badge" data-i18n="b_ai">AI</span><span class="date"><span data-i18n="d_mar9">9 Mar 2026</span></span></span><h3>AAU ProLab: Generativ AI i studiepraksis</h3><span class="by">Aalborg University</span></a>
+      <a class="cert" href="assets/certs/aau-prolab-samarbejde.jpg" data-cert="aau-prolab-samarbejde"><span class="thumb"><img src="assets/certs/aau-prolab-samarbejde.jpg" alt="" loading="lazy" width="1404" height="992"><span class="view" data-i18n="cert_view">View certificate</span></span><span class="ct"><span class="badge" data-i18n="b_team">Teamwork</span><span class="date"><span data-i18n="d_mar9">9 Mar 2026</span></span></span><h3>AAU ProLab: Samarbejde på tværs af fagligheder</h3><span class="by">Aalborg University</span></a>
+    </div>
+    <dialog class="certview" id="certview" aria-labelledby="cv-title">
+      <div class="cv-bar">
+        <div><div class="cv-title" id="cv-title"></div><div class="cv-by" id="cv-by"></div></div>
+        <div class="cv-actions">
+          <button class="cv-btn cv-x" id="cv-close" type="button" aria-label="Close">✕</button>
+        </div>
+      </div>
+      <div class="cv-stage">
+        <button class="cv-nav prev" id="cv-prev" type="button" aria-label="Previous">‹</button>
+        <img id="cv-img" alt="" draggable="false">
+        <button class="cv-nav next" id="cv-next" type="button" aria-label="Next">›</button>
+      </div>
+    </dialog>
+    <div class="certs-more"><a href="https://www.linkedin.com/in/yasirteksen/details/certifications/" target="_blank" rel="noopener"><span data-i18n="certs_more">See them on LinkedIn</span> →</a></div>
+  </div>
+</section>
+
+<!-- ============ scene 9 · education ============ -->
+<section class="edu-scene" id="education">
+  <div class="wrap">
+    <div class="kicker" data-i18n="k_edu">Education</div>
+    <h2 data-i18n="h_edu">My path so far</h2>
+    <div class="edu-row goal" data-scene="view">
+      <span class="yr when goal"><b data-i18n="e2_y">Next</b></span>
+      <div>
+        <h3 data-i18n="e2_h">MSc in cybersecurity, my goal</h3>
+        <div class="s" data-i18n="e2_s">I regularly attend Hacking Evening with CyberSkills and PROSA at AAU Copenhagen.</div>
+      </div>
+      <span></span>
+    </div>
+    <div class="edu-row" data-scene="view">
+      <span class="yr when now"><b>2025</b><i aria-hidden="true">→</i><b>2028</b></span>
+      <div>
+        <h3 data-i18n="e1_h">BSc in Engineering (Software)</h3>
+        <div class="org">Aalborg University Copenhagen</div>
+        <div class="s" data-i18n="e1_s">Third semester, expected to finish in June 2028. Courses include Databases and Software Architecture, Systems Development and Internetworking and Web Programming.</div>
+      </div>
+      <span class="grade" data-i18n="e1_g">Average 8.0 / 12</span>
+    </div>
+    <div class="edu-row" data-scene="view">
+      <span class="yr when"><b>2025</b></span>
+      <div>
+        <h3>Københavns Åbne Gymnasium</h3>
+        <div class="s" data-i18n="e3_s">Upper secondary education. My Superliga database project in Informatik C was graded 12.</div>
+      </div>
+      <span></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ scene 10 · contact ============ -->
+<section class="contact-scene" id="contact" data-scene="view">
+  <div class="wrap">
+    <div class="contact">
+      <div class="kicker" data-i18n="k_contact">Contact</div>
+      <h2 data-i18n="h_contact">Let us talk</h2>
+      <p data-i18n="contact_p">I am looking for a student job in development, testing, data, IT support or cybersecurity, 10 to 15 hours a week. Greater Copenhagen, and the fastest way to reach me is email.</p>
+      <div class="btns">
+        <a class="btn primary" href="mailto:yasirteksen@hotmail.com"><svg class="ic" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg><span data-i18n="btn_mail">Email me</span></a>
+        <a class="btn" href="https://www.linkedin.com/in/yasirteksen" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg><span>LinkedIn</span></a>
+        <a class="btn" href="https://github.com/Teksen42" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 .5C5.7.5.5 5.7.5 12.1c0 5.1 3.3 9.5 7.9 11 .6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 015.8 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.7.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6a11.6 11.6 0 007.9-11C23.5 5.7 18.3.5 12 .5z"/></svg><span>GitHub</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="f-copy" data-i18n="copy">© 2026 Yasir Lokman Teksen. All rights reserved.</span>
+    <span class="f-right">
+      <span data-i18n="foot">Copenhagen</span>
+      <a class="f-top" href="#top"><span data-i18n="to_top">Back to top</span> ↑</a>
+    </span>
+  </div>
+</footer>
+
+<script src="main.js?v=5"></script>
+<!-- GoatCounter: privacy-friendly visitor stats, no cookies, no personal data -->
+<script data-goatcounter="https://teksen42.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
