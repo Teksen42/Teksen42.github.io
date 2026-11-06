@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yasir Lokman Teksen — Software Student</title>
+<meta name="description" content="Software student at Aalborg University Copenhagen. Building Nabolys, working on Weft and co-developer of Kvixa. Ten certificates in 2026. C#, .NET, TypeScript, SQL, testing and IT support.">
+<meta name="theme-color" content="#4338ca" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0d0f1a" media="(prefers-color-scheme: dark)">
+<!-- monogram favicon, inline so there is no extra request and nothing to 404 -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%234338ca'/%3E%3Ctext x='32' y='40' font-family='Helvetica,Arial,sans-serif' font-size='22' font-weight='800' fill='%23f5f6fb' text-anchor='middle'%3EYLT%3C/text%3E%3C/svg%3E">
+<link rel="canonical" href="https://teksen42.github.io/">
+<!-- social card: without these the link renders as a blank grey box -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://teksen42.github.io/">
+<meta property="og:site_name" content="Yasir Lokman Teksen">
+<meta property="og:title" content="Yasir Lokman Teksen — Software Student">
+<meta property="og:description" content="Software student at Aalborg University Copenhagen. Building Nabolys, working on Weft on Azure and co-developer of Kvixa. Ten certificates in 2026.">
+<meta property="og:locale" content="en_DK">
+<meta property="og:locale:alternate" content="da_DK">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Yasir Lokman Teksen — Software Student">
+<meta name="twitter:description" content="Software student in Copenhagen. Building Nabolys, working on Weft and co-developer of Kvixa. Ten certificates in 2026.">
+
+<script>
+  /* runs before first paint so a dark-mode visitor never sees a white flash */
+  (function(){
+    var t = null;
+    try { t = localStorage.getItem('theme'); } catch(e){}
+    if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.dataset.theme = t;
+  })();
+</script>
+
+<link rel="preload" href="assets/fonts/schibsted-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css?v=42">
+</head>
+<body>
+
+<a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+
+<nav id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top">Yasir Lokman Teksen</a>
+    <div class="navlinks" id="navlinks">
+      <a href="#about" data-i18n="nav_about">About</a>
+      <a href="#work" data-i18n="nav_work">Work</a>
+      <a href="#experience" data-i18n="nav_xp">Experience</a>
+      <a href="#skills" data-i18n="nav_skills">Skills</a>
+      <a href="#certificates" data-i18n="nav_certs">Certificates</a>
+      <a href="#contact" data-i18n="nav_contact">Contact</a>
+      <button class="lang" id="langbtn" type="button" aria-label="Switch language"><span id="l-en" class="on">EN</span> / <span id="l-da">DA</span></button>
+      <button class="theme" id="themebtn" type="button" aria-label="Toggle dark mode"><svg class="ic-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="ic-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.4 1.4M17.6 17.6 19 19M5 19l1.4-1.4M17.6 6.4 19 5"/></svg></button>
+    </div>
+    <button class="burger" id="burger" type="button" aria-label="Menu" aria-expanded="false"><i></i><i></i><i></i></button>
+  </div>
+</nav>
+<div class="mobile" id="mobile">
+  <a href="#about" data-i18n="nav_about">About</a>
+  <a href="#work" data-i18n="nav_work">Work</a>
+  <a href="#experience" data-i18n="nav_xp">Experience</a>
+  <a href="#skills" data-i18n="nav_skills">Skills</a>
+  <a href="#certificates" data-i18n="nav_certs">Certificates</a>
+  <a href="#contact" data-i18n="nav_contact">Contact</a>
+  <div class="mobile-btns">
+    <button class="lang" id="langbtn2" type="button" aria-label="Switch language"><span id="l2-en" class="on">EN</span> / <span id="l2-da">DA</span></button>
+    <button class="theme" id="themebtn2" type="button" aria-label="Toggle dark mode"><svg class="ic-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="ic-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.4 1.4M17.6 17.6 19 19M5 19l1.4-1.4M17.6 6.4 19 5"/></svg></button>
+  </div>
+</div>
+
+<main id="main">
+
+<section class="top-d" id="top">
+  <div class="wrap td-in">
+    <div class="td-text">
+      <h1 aria-label="Yasir Lokman Teksen"><span class="ln"><span>Yasir&nbsp;Lokman</span></span><span class="ln"><span><em>Teksen</em></span></span></h1>
+      <p class="td-lede" data-i18n="td_lede">I'm Yasir, and I study software at Aalborg University Copenhagen, now in my third semester. Right now I'm building the preparedness app <strong>Nabolys</strong>. I also work on <strong>Weft</strong> and helped make <strong>Kvixa</strong>. Next to my studies I'm a closing manager at Bilka, and my goal is an MSc in cybersecurity.</p>
+      <p class="td-status" data-i18n="status">Looking for a student job, 10 to 15 hours a week.</p>
+      <p class="td-jump"><a href="#work" data-i18n="td_jump">See the projects ↓</a></p>
+      <ul class="td-meta">
+        <li data-i18n="meta_loc">Ishøj, Greater Copenhagen</li>
+        <li class="td-icons">
+          <a class="ico" href="mailto:yasirteksen@hotmail.com" title="yasirteksen@hotmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><span data-i18n="meta_mail">Email</span></a>
+          <a class="ico" href="https://github.com/Teksen42" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span>GitHub</span></a>
+          <a class="ico" href="https://www.linkedin.com/in/yasirteksen" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg><span>LinkedIn</span></a>
+        </li>
+      </ul>
+    </div>
+    <div class="td-me">
+      <img src="assets/portrait.webp" alt="Portrait of Yasir Lokman Teksen" width="660" height="880">
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="claim-scene" id="claim-scene">
+    <div class="claim-stage">
+      <div class="wrap">
+        <p class="claim" id="claim" data-i18n="claim">I build software <span class="ph" data-proof="users">with the people who will use it</span>, <span class="ph" data-proof="test">test it until it works</span>, and <span class="ph" data-proof="explain">explain it so they understand it</span>.</p>
+        <p class="proof" id="proof"></p>
+      </div>
+    </div>
+  </div>
+  <div class="wrap about-facts">
+    <dl class="facts">
+      <div><dt>12 <small>(A)</small></dt><dd data-i18n="n1">Second semester project, the top grade on the Danish scale</dd></div>
+      <div><dt>10</dt><dd data-i18n="n2">Certificates completed in 2026, from Codecademy, Aalborg University and IDA</dd></div>
+      <div><dt>4</dt><dd data-i18n="n3">Years at Bilka, now closing manager and training new colleagues</dd></div>
+    </dl>
+  </div>
+</section>
+
+<div id="work">
+
+<section class="proj nabolys" id="nabolys">
+  <div class="wrap proj-split">
+    <div class="proj-copy">
+      <p class="kind" data-i18n="k_nabolys">Preparedness app in development, own project</p>
+      <h2>Nabolys</h2>
+      <p class="proj-lede" data-i18n="n_lede">Nabolys helps a family and their neighbours get ready for the first three days of a crisis. It is my own project, and the app is on its way to Android and iPhone.</p>
+      <p class="stack" data-i18n="n_tags">C#/.NET 10 · Azure SQL · Entra ID · Bicep · GitHub Actions · React Native · Kotlin · Swift</p>
+      <p class="links"><a class="ext" href="https://nabolys.azurewebsites.net/" target="_blank" rel="noopener">nabolys.azurewebsites.net <span aria-hidden="true">↗</span></a></p>
+    </div>
+    <div class="proj-media">
+      <figure>
+        <a class="frame" href="https://nabolys.azurewebsites.net/" target="_blank" rel="noopener"><div class="frame-bar" aria-hidden="true"><i></i><i></i><i></i><span>nabolys.azurewebsites.net</span></div><img src="assets/demo/nb-site.webp" alt="The Nabolys website: ready for the first three days, with a waitlist" width="1400" height="825" loading="lazy"></a>
+        <figcaption data-i18n="cap_n1">The Nabolys website, with a waitlist</figcaption>
+      </figure>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="feats">
+      <div class="feat"><h3 data-i18n="f_n1_h">Stock and three-day list</h3><p data-i18n="f_n1_p">Type or scan your items with their best-before dates, and see what the household is missing for three days according to the authorities' advice.</p></div>
+      <div class="feat"><h3 data-i18n="f_n2_h">Family plan and “I am OK”</h3><p data-i18n="f_n2_p">Agree on a meeting place and important numbers, and check in with one tap, so the family can see you are fine.</p></div>
+      <div class="feat"><h3 data-i18n="f_n3_h">Write and talk without a network</h3><p data-i18n="f_n3_p">When the network is down, messages and voice go straight from phone to phone over Bluetooth, as long as you are within range.</p></div>
+      <div class="feat"><h3 data-i18n="f_n4_h">Only the family can read it</h3><p data-i18n="f_n4_p">What you share with the family is locked before it leaves your phone. Only the family can read it, not even us.</p></div>
+    </div>
+  </div>
+
+  <div class="nb-embed">
+    <iframe id="nb-frame" src="nabolys/se-appen.html" title="Nabolys: se appen" scrolling="no"></iframe>
+  </div>
+
+  <div class="wrap">
+    <div class="calc" id="calc">
+      <div class="calc-head">
+        <h3 data-i18n="calc_h">What does your household need?</h3>
+        <p data-i18n="calc_p">The Danish authorities recommend that you can manage on your own for three days in a crisis. It is guidance, not a duty. This is the same calculation as in the app, and each group says where the numbers come from.</p>
+      </div>
+      <div class="calc-grid">
+        <div class="steppers" id="steppers"></div>
+        <div class="calc-side">
+          <div class="calc-out" id="calc-out" aria-live="polite"></div>
+          <button type="button" class="calc-toggle" id="calc-toggle" aria-expanded="false" aria-controls="calc-full"></button>
+        </div>
+      </div>
+      <div class="calc-full" id="calc-full" hidden><div id="calc-list"></div></div>
+      <p class="calc-src" data-i18n="calc_src">Sources: <a href="https://samsik.dk/forberedt/" target="_blank" rel="noopener">Styrelsen for Samfundssikkerhed</a>, <a href="https://www.foedevarestyrelsen.dk/kost-og-foedevarer/foedevaresikkerhed/foedevareberedskab/forberedt-paa-kriser" target="_blank" rel="noopener">Fødevarestyrelsen</a> and <a href="https://www.nationalbanken.dk/da/viden-og-nyheder/presse/arkiv/2025/nationalbankens-nye-anbefalinger-om-betalinger-i-butikker-og-anden-fysisk-handel-06-10-2025" target="_blank" rel="noopener">Nationalbanken</a>. The authorities mention several things with no amount, and there the app counts at least one. Nabolys is a private project, not an authority.</p>
+    </div>
+  </div>
+</section>
+
+<section class="proj weft" id="weft">
+  <div class="wrap proj-split">
+    <div class="proj-copy">
+      <p class="kind" data-i18n="k_weft">Planning app in development, team project</p>
+      <h2>Weft</h2>
+      <p class="proj-lede" data-i18n="w_lede">Work, study and training sit in different places. Weft keeps them in one plan and rearranges it when something moves. Jawad Qayyum and I are building it together, and I work on the backend in C# and .NET, the frontend and testing.</p>
+      <p class="stack" data-i18n="w_tags">C#/.NET 8 · Azure SQL · Entra ID · Bicep · GitHub Actions · React Native</p>
+      <p class="links"><a class="ext" href="https://weft.azurewebsites.net" target="_blank" rel="noopener">weft.azurewebsites.net <span aria-hidden="true">↗</span></a></p>
+    </div>
+    <div class="proj-media">
+      <figure>
+        <a class="frame" href="https://weft.azurewebsites.net" target="_blank" rel="noopener"><div class="frame-bar" aria-hidden="true"><i></i><i></i><i></i><span>weft.azurewebsites.net</span></div><img src="assets/weft.webp" alt="The Weft landing page" width="1400" height="825" loading="lazy"></a>
+        <figcaption data-i18n="cap_w1">The Weft website, with a waitlist</figcaption>
+      </figure>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="feats">
+      <div class="feat"><h3 data-i18n="f_w1_h">A rota from a photo</h3><p data-i18n="f_w1_p">Take a picture of the rota where it hangs. Weft reads the shifts and asks when it is unsure.</p></div>
+      <div class="feat"><h3 data-i18n="f_w2_h">One time to leave home</h3><p data-i18n="f_w2_p">Weft works out the travel time from door to door and tells you when the train fails.</p></div>
+      <div class="feat"><h3 data-i18n="f_w3_h">Nothing you cannot undo</h3><p data-i18n="f_w3_p">Every change shows its reason and an undo button.</p></div>
+      <div class="feat"><h3 data-i18n="f_w4_h">Running on Azure</h3><p data-i18n="f_w4_p">The API runs on Azure App Service with Azure SQL and Entra ID sign in. The features are being finished before release.</p></div>
+    </div>
+    <div class="w-strip-wrap">
+      <h3 class="w-strip-h" data-i18n="ws_h">What the app looks like</h3>
+      <p class="w-strip-note" data-i18n="ws_note">Screens from the Weft prototype.</p>
+      <div class="w-strip">
+        <figure><img src="assets/demo/weft-idag.webp" alt="Weft: the plan for today with lectures, a shift, training and protected time" width="760" height="1607" loading="lazy"><figcaption data-i18n="cap_wa">Today, all in one plan</figcaption></figure>
+        <figure><img src="assets/demo/weft-ask.webp" alt="Weft: a chat where the user writes they are called in for a shift, and Weft moves the run" width="760" height="1607" loading="lazy"><figcaption data-i18n="cap_wb">Write what happened, and Weft moves the run</figcaption></figure>
+        <figure><img src="assets/demo/weft-recalc.webp" alt="Weft: the plan before and after, with what changes" width="760" height="1607" loading="lazy"><figcaption data-i18n="cap_wc">The plan before and after, ready to confirm</figcaption></figure>
+        <figure><img src="assets/demo/weft-baner.webp" alt="Weft: a week view with a shift and a lecture side by side" width="760" height="1607" loading="lazy"><figcaption data-i18n="cap_wd">What overlaps, side by side</figcaption></figure>
+      </div>
+    </div>
+  </div>
+  <div class="wrap plan-wrap">
+    <div class="plan" id="plan">
+      <div class="plan-side">
+        <h3 data-i18n="plan_h">Something moves. What happens to the day?</h3>
+        <div class="plan-btns" id="plan-btns"></div>
+        <p class="plan-msg" id="plan-msg" aria-live="polite"></p>
+        <p class="demo-note" data-i18n="plan_note">A small example I coded for this page. It is not Weft's real planner.</p>
+      </div>
+      <div class="plan-day" id="plan-day"></div>
+    </div>
+  </div>
+</section>
+
+<section class="proj kvixa" id="kvixa">
+  <div class="wrap proj-split flip">
+    <div class="proj-copy">
+      <p class="kind" data-i18n="k_kvixa">Ordering platform in daily use, team project</p>
+      <h2>Kvixa</h2>
+      <p class="proj-lede" data-i18n="x_lede">Self-service kiosks and online ordering for grill bars, cafés and takeaway places. I co-developed it together with study friends and helped launch it at Chicken N Chicken Waves in Greve, where the orders now come in through Kvixa every day.</p>
+      <p class="stack" data-i18n="x_tags">Node.js · MongoDB · Kotlin + Compose · Flutter · Docker</p>
+      <p class="links">
+        <a class="ext" href="https://kvixa.vestegnensit.dk/" target="_blank" rel="noopener">kvixa.vestegnensit.dk <span aria-hidden="true">↗</span></a>
+        <a class="ext" href="https://chickenwaves.dk" target="_blank" rel="noopener">chickenwaves.dk <span aria-hidden="true">↗</span></a>
+      </p>
+    </div>
+    <div class="proj-media">
+      <figure>
+        <a class="frame" href="https://kvixa.vestegnensit.dk/" target="_blank" rel="noopener"><div class="frame-bar" aria-hidden="true"><i></i><i></i><i></i><span>kvixa.vestegnensit.dk</span></div><img src="assets/kvixa.webp" alt="The Kvixa website: kiosk and online ordering in the restaurant's own design" width="1400" height="825" loading="lazy"></a>
+        <figcaption data-i18n="cap_x1">The Kvixa website</figcaption>
+      </figure>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="feats">
+      <div class="feat"><h3 data-i18n="f_x1_h">In the shop</h3><p data-i18n="f_x1_p">Guests order and pay at the screen themselves, with add-ons and meals, Danish and English, and the 14 EU allergens on every dish.</p></div>
+      <div class="feat"><h3 data-i18n="f_x2_h">Online</h3><p data-i18n="f_x2_p">The restaurant's own website and ordering page. Guests pick up now or later, from the same menu as the kiosk.</p></div>
+      <div class="feat"><h3 data-i18n="f_x3_h">Behind the counter</h3><p data-i18n="f_x3_p">Every order rings on one counter screen until someone taps Received. The numbers move from preparing to ready on an ordinary TV.</p></div>
+      <div class="feat"><h3 data-i18n="f_x4_h">For the restaurant</h3><p data-i18n="f_x4_p">Menu, prices and opening hours are edited from a phone, and one tap marks a dish as sold out.</p></div>
+    </div>
+    <div class="w-strip-wrap">
+      <h3 class="w-strip-h" data-i18n="cw_h">In use every day in Greve</h3>
+      <p class="w-strip-note" data-i18n="cw_note">chickenwaves.dk is the restaurant's own website. Guests order there, and the orders come in through Kvixa.</p>
+      <div class="cw-grid">
+        <div class="cw-photos">
+        <figure class="cw-photo cw-shop">
+          <img src="assets/demo/kvixa-photo.webp" alt="Two Kvixa self-service kiosks on a wooden counter at Chicken N Chicken Waves in Greve" width="1300" height="1864" loading="lazy">
+          <figcaption data-i18n="cap_cw4">Both kiosks in the shop</figcaption>
+        </figure>
+        <figure class="cw-photo cw-start">
+          <img src="assets/demo/kvixa-start.webp" alt="A Kvixa kiosk showing its start screen with a chicken wrap and the button to start an order" width="1100" height="1807" loading="lazy">
+          <figcaption data-i18n="cap_cw0">The start screen on the kiosk</figcaption>
+        </figure>
+        <figure class="cw-photo cw-front">
+          <img src="assets/demo/kvixa-front.webp" alt="A Kvixa kiosk showing the burger menu, with the card terminal beside it" width="1200" height="1600" loading="lazy">
+          <figcaption data-i18n="cap_cw3">The menu on the kiosk, with the card terminal</figcaption>
+        </figure>
+        </div>
+        <div class="cw-frames">
+        <figure>
+          <a class="frame" href="https://chickenwaves.dk" target="_blank" rel="noopener"><div class="frame-bar" aria-hidden="true"><i></i><i></i><i></i><span>chickenwaves.dk</span></div><img src="assets/demo/cw-home.webp" alt="The front page of chickenwaves.dk with crispy chicken and an order online button" width="1400" height="687" loading="lazy"></a>
+          <figcaption data-i18n="cap_cw1">The restaurant's front page</figcaption>
+        </figure>
+        <figure>
+          <a class="frame" href="https://chickenwaves.dk/chicken-n-chicken" target="_blank" rel="noopener"><div class="frame-bar" aria-hidden="true"><i></i><i></i><i></i><span>chickenwaves.dk/chicken-n-chicken</span></div><img src="assets/demo/cw-menu.webp" alt="The ordering page on chickenwaves.dk with the menu and a basket" width="1400" height="687" loading="lazy"></a>
+          <figcaption data-i18n="cap_cw2">The ordering page with the menu and the basket</figcaption>
+        </figure>
+        </div>
+      </div>
+    </div>
+    <div class="kv" id="kv">
+      <h3 class="kv-h" data-i18n="kv_h">Order something, and follow it through the restaurant</h3>
+      <div class="kv-grid">
+        <div class="kv-col">
+          <p class="kv-step" data-i18n="kv_s1">1. The guest orders at the kiosk</p>
+          <div class="kiosk">
+            <div class="kiosk-top">Byens Grill</div>
+            <div class="kiosk-items" id="kiosk-items"></div>
+            <div class="kiosk-foot"><span id="kiosk-sum"></span><button type="button" id="kiosk-pay"></button></div>
+            <div class="kiosk-done" id="kiosk-done" role="status" hidden></div>
+          </div>
+        </div>
+        <div class="kv-col">
+          <p class="kv-step" data-i18n="kv_s2">2. The order lands on the counter screen. Tap Received, Ready and Handed over</p>
+          <div class="counter" id="counter"></div>
+        </div>
+        <div class="kv-col">
+          <p class="kv-step" data-i18n="kv_s3">3. The number moves on the TV</p>
+          <div class="tv" id="tv"></div>
+        </div>
+      </div>
+      <p class="demo-note" data-i18n="kv_note">A small example of the flow, coded for this page. It works in the same steps as Kvixa, and nothing is sent anywhere.</p>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<section class="sect" id="projects">
+  <div class="wrap sect-grid">
+    <h2 data-i18n="h_proj">Other projects</h2>
+    <div class="rows big">
+      <article class="row">
+        <span class="when" data-i18n="yr_now">Autumn 2026</span>
+        <div>
+          <h3 data-i18n="c2_h">Coordination system</h3>
+          <p class="sub" data-i18n="c2_role">Third semester project · in progress</p>
+          <p data-i18n="c2_p">A system that will handle sign ups, status, hours and notifications for 2 coordinators and about 40 student ambassadors. I take part in the interviews, the survey, the requirements specification, the design and the first prototypes.</p>
+          <p class="stack">Java · PostgreSQL · React · TypeScript</p>
+        </div>
+      </article>
+
+      <article class="row">
+        <span class="when" data-i18n="yr_m1">Summer 2026</span>
+        <div>
+          <h3>Mosque Translate</h3>
+          <p class="sub" data-i18n="m1_role">Co-developer · built together with a friend</p>
+          <p data-i18n="m1_p">Built for live subtitles of the Friday sermon in a mosque. The imam speaks Arabic or Turkish, even switching mid-sentence, and the speech is translated live into Danish and Turkish subtitles in the browser, ready for a TV screen. Quran recitation is recognised among 6,236 verses and shown with the official translations and a reference. There is a demo mode that runs without API keys.</p>
+          <p class="stack">Python · Flask · JavaScript · Soniox · Claude Haiku · Azure Speech · RapidFuzz</p>
+        </div>
+      </article>
+
+      <article class="row">
+        <span class="when">2026</span>
+        <div>
+          <h3>AAU CPH Events</h3>
+          <p class="sub" data-i18n="a_role">Second semester project · group leader of six · graded 12</p>
+          <p data-i18n="a_p">A web prototype where students find, filter, save and sign up for events, and organisers manage them. Built on a survey of 94 people and interviews, tested in two rounds of usability tests, with 29 automated tests. I worked on the database, sign up and login, and the event features.</p>
+          <p class="stack"><a href="https://github.com/Teksen42/aau_cph_events" target="_blank" rel="noopener">GitHub</a> · Node.js · Express · MongoDB · Figma</p>
+        </div>
+      </article>
+
+      <article class="row">
+        <span class="when">2026</span>
+        <div>
+          <h3 data-i18n="c3_h">Multi-agent setup in Claude Code</h3>
+          <p class="sub" data-i18n="c3_role">Personal automation</p>
+          <p data-i18n="c3_p">I designed a setup where several AI agents worked at the same time to collect more than 1,000 job listings from Jobindex, LinkedIn and AAU Jobbank and sort them by fixed rules. One agent checked that the others kept running, and one removed duplicates. I checked the results against the original listings before relying on them.</p>
+          <p class="stack">Claude Code · Claude · <span data-i18n="c3_t">AI agents · Checking the output</span></p>
+        </div>
+      </article>
+
+      <article class="row">
+        <span class="when">2025</span>
+        <div>
+          <h3 data-i18n="p1_h">P1: Social events at AAU CPH</h3>
+          <p class="sub" data-i18n="p1_role">First semester project · group of seven · graded 10</p>
+          <p data-i18n="p1_p">A program in C that gives an overview of events for students at AAU Copenhagen. It reads events from a text file into structs, sorts them by time and price with qsort, filters by category and alcohol, searches by title and lets you add new events.</p>
+          <p class="stack">C · Structs · qsort · <span data-i18n="p1_t">File input</span></p>
+        </div>
+      </article>
+
+      <article class="row">
+        <span class="when">2025</span>
+        <div>
+          <h3 data-i18n="c1_h">Superliga SQL database</h3>
+          <p class="sub" data-i18n="c1_role">High school project in Informatik C · group of two · graded 12</p>
+          <p data-i18n="c1_p">A relational database of Danish Superliga data with nine tables, an ER diagram and normalisation to third normal form, plus SQL queries with joins, grouping and aggregation.</p>
+          <p class="stack"><a href="https://github.com/Teksen42/Superliga_SQL_Database_Project" target="_blank" rel="noopener">GitHub</a> · SQL · ER diagram · 3NF</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sect" id="experience">
+  <div class="wrap">
+    <h2 class="sect-h" data-i18n="h_xp">Where I have worked</h2>
+    <ol class="stairs">
+      <li style="--s:0">
+        <span class="when">2022–2023</span>
+        <h3 data-i18n="j3_h">Cashier</h3>
+        <p class="sub">Bilka Waves, Greve (Salling Group)</p>
+        <p data-i18n="j3_p">Served customers at the till and restarted the card terminal when it failed, so customers could pay again quickly.</p>
+      </li>
+      <li style="--s:1">
+        <span class="when">2023–2024</span>
+        <h3 data-i18n="j2_h">Sales Assistant, Electronics</h3>
+        <p class="sub">Bilka Waves, Greve (Salling Group)</p>
+        <p data-i18n="j2_p">Advised customers on computers, phones and TVs, helped with basic troubleshooting and referred them to the service centre when needed. Used SAP for product look ups and stock status.</p>
+      </li>
+      <li style="--s:2">
+        <span class="when">2024–<span data-i18n="now">now</span></span>
+        <h3 data-i18n="j1_h">Closing Manager and Sales Assistant, Electronics</h3>
+        <p class="sub">Bilka Waves, Greve (Salling Group)</p>
+        <p data-i18n="j1_p">Hold closing responsibility and help train new colleagues in products, procedures and customer service. Part time alongside my studies.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="toolbox" id="skills">
+  <div class="wrap">
+    <h2 data-i18n="h_skills">What I work with</h2>
+    <div class="tools">
+      <div class="tool">
+        <h3 data-i18n="s1_h">Languages</h3>
+        <ul><li>C#</li><li>TypeScript</li><li>JavaScript</li><li>Java</li><li>SQL</li><li>Python</li><li>C</li><li>HTML</li><li>CSS</li></ul>
+      </div>
+      <div class="tool">
+        <h3 data-i18n="s2_h">Web and backend</h3>
+        <ul><li>.NET</li><li>Node.js</li><li>Express</li><li>React</li><li>React Native</li><li>Azure</li><li>PostgreSQL</li><li>MongoDB</li><li>Git</li><li>GitHub</li><li>GitHub Actions</li></ul>
+      </div>
+      <div class="tool">
+        <h3 data-i18n="s3_h">Data</h3>
+        <ul><li>SQL</li><li data-i18n="s3_1">ER diagrams</li><li data-i18n="s3_2">Normalisation (3NF)</li><li data-i18n="s3_3">Data integrity</li><li>Power BI</li></ul>
+      </div>
+      <div class="tool">
+        <h3 data-i18n="s4_h">Testing and UX</h3>
+        <ul><li data-i18n="s4_1">Automated tests</li><li data-i18n="s4_2">Usability testing</li><li data-i18n="s4_3">User interviews</li><li data-i18n="s4_4">Figma prototypes</li><li data-i18n="s4_5">User centred design</li></ul>
+      </div>
+      <div class="tool">
+        <h3 data-i18n="s6_h">Support and IT</h3>
+        <ul><li data-i18n="s6_1">Troubleshooting</li><li data-i18n="s6_2">Device setup</li><li>Windows 11</li><li>macOS</li><li>Android</li><li>iOS</li><li>SAP</li><li>IP · TCP · HTTP</li></ul>
+      </div>
+      <div class="tool">
+        <h3 data-i18n="s5_h">AI and automation</h3>
+        <ul><li>Claude</li><li>Claude Code</li><li>ChatGPT</li><li>Gemini</li><li>Microsoft Copilot</li><li>Microsoft 365 Copilot</li><li>GitHub Copilot</li><li>Power Automate</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sect" id="certificates">
+  <div class="wrap">
+    <div class="cert-head">
+      <h2 class="sect-h" data-i18n="h_certs">Ten certificates in 2026</h2>
+      <div class="cert-filter" id="cert-filter">
+        <button type="button" class="on" data-cat="" data-i18n="f_all">All</button>
+        <button type="button" data-cat="b_data" data-i18n="b_data">Data</button>
+        <button type="button" data-cat="b_code" data-i18n="b_code">Programming</button>
+        <button type="button" data-cat="b_sec" data-i18n="b_sec">Security</button>
+        <button type="button" data-cat="b_ux" data-i18n="b_ux">UX</button>
+        <button type="button" data-cat="b_ai" data-i18n="b_ai">AI</button>
+        <button type="button" data-cat="b_team" data-i18n="b_team">Teamwork</button>
+      </div>
+    </div>
+    <div class="certs">
+      <a class="cert" href="assets/certs/learn-sql.jpg" data-cert="learn-sql" data-cat="b_data"><span class="thumb"><img src="assets/certs/learn-sql.jpg" alt="" loading="lazy" width="992" height="779"></span><h3>Learn SQL</h3><p class="cert-sub"><span class="by">Codecademy</span>, <span class="date"><span data-i18n="d_sep23">23 Sep 2026</span></span></p></a>
+      <a class="cert" href="assets/certs/transform-tables-sql.jpg" data-cert="transform-tables-sql" data-cat="b_data"><span class="thumb"><img src="assets/certs/transform-tables-sql.jpg" alt="" loading="lazy" width="992" height="779"></span><h3>How to Transform Tables with SQL</h3><p class="cert-sub"><span class="by">Codecademy</span>, <span class="date"><span data-i18n="d_sep23">23 Sep 2026</span></span></p></a>
+      <a class="cert" href="assets/certs/learn-java-oop.jpg" data-cert="learn-java-oop" data-cat="b_code"><span class="thumb"><img src="assets/certs/learn-java-oop.jpg" alt="" loading="lazy" width="992" height="779"></span><h3>Learn Java: Object-Oriented Programming</h3><p class="cert-sub"><span class="by">Codecademy</span>, <span class="date"><span data-i18n="d_sep23">23 Sep 2026</span></span></p></a>
+      <a class="cert" href="assets/certs/ux-designer.jpg" data-cert="ux-designer" data-cat="b_ux"><span class="thumb"><img src="assets/certs/ux-designer.jpg" alt="" loading="lazy" width="992" height="779"></span><h3>UX Designer Career Path</h3><p class="cert-sub"><span class="by">Codecademy</span>, <span class="date"><span data-i18n="d_jul15">15 Jul 2026</span></span></p></a>
+      <a class="cert" href="assets/certs/cybersecurity.jpg" data-cert="cybersecurity" data-cat="b_sec"><span class="thumb"><img src="assets/certs/cybersecurity.jpg" alt="" loading="lazy" width="992" height="779"></span><h3>Fundamentals of Cybersecurity Skill Path</h3><p class="cert-sub"><span class="by">Codecademy</span>, <span class="date"><span data-i18n="d_jun24">24 Jun 2026</span></span></p></a>
+      <a class="cert" href="assets/certs/power-bi.jpg" data-cert="power-bi" data-cat="b_data"><span class="thumb"><img src="assets/certs/power-bi.jpg" alt="" loading="lazy" width="992" height="779"></span><h3>BI Dashboards with Power BI</h3><p class="cert-sub"><span class="by">Codecademy</span>, <span class="date"><span data-i18n="d_jun23">23 Jun 2026</span></span></p></a>
+      <a class="cert" href="assets/certs/learn-javascript.jpg" data-cert="learn-javascript" data-cat="b_code"><span class="thumb"><img src="assets/certs/learn-javascript.jpg" alt="" loading="lazy" width="992" height="779"></span><h3>Learn JavaScript</h3><p class="cert-sub"><span class="by">Codecademy</span>, <span class="date"><span data-i18n="d_mar30">30 Mar 2026</span></span></p></a>
+      <a class="cert" href="assets/certs/aau-prolab-generativ-ai.jpg" data-cert="aau-prolab-generativ-ai" data-cat="b_ai"><span class="thumb"><img src="assets/certs/aau-prolab-generativ-ai.jpg" alt="" loading="lazy" width="1404" height="992"></span><h3>AAU ProLab: Generativ AI i studiepraksis</h3><p class="cert-sub"><span class="by">Aalborg University</span>, <span class="date"><span data-i18n="d_mar9">9 Mar 2026</span></span></p></a>
+      <a class="cert" href="assets/certs/aau-prolab-samarbejde.jpg" data-cert="aau-prolab-samarbejde" data-cat="b_team"><span class="thumb"><img src="assets/certs/aau-prolab-samarbejde.jpg" alt="" loading="lazy" width="1404" height="992"></span><h3>AAU ProLab: Samarbejde på tværs af fagligheder</h3><p class="cert-sub"><span class="by">Aalborg University</span>, <span class="date"><span data-i18n="d_mar9">9 Mar 2026</span></span></p></a>
+      <a class="cert" href="assets/certs/ida-react.jpg" data-cert="ida-react" data-cat="b_code"><span class="thumb"><img src="assets/certs/ida-react.jpg" alt="" loading="lazy" width="992" height="1403" style="object-position:center 27%"></span><h3>Frontend udvikling i React/JavaScript</h3><p class="cert-sub"><span class="by">IDA</span>, <span class="date"><span data-i18n="d_jan25">25 Jan 2026</span></span></p></a>
+    </div>
+    <dialog class="certview" id="certview" aria-labelledby="cv-title">
+      <div class="cv-bar">
+        <div><div class="cv-title" id="cv-title"></div><div class="cv-by" id="cv-by"></div></div>
+        <div class="cv-actions">
+          <button class="cv-btn cv-x" id="cv-close" type="button" aria-label="Close">✕</button>
+        </div>
+      </div>
+      <div class="cv-stage">
+        <button class="cv-nav prev" id="cv-prev" type="button" aria-label="Previous">‹</button>
+        <img id="cv-img" alt="" draggable="false">
+        <button class="cv-nav next" id="cv-next" type="button" aria-label="Next">›</button>
+      </div>
+    </dialog>
+    <p class="certs-more"><a href="https://www.linkedin.com/in/yasirteksen/details/certifications/" target="_blank" rel="noopener"><span data-i18n="certs_more">See them on LinkedIn</span> →</a></p>
+  </div>
+</section>
+
+<section class="sect" id="education">
+  <div class="wrap sect-grid">
+    <h2 data-i18n="h_edu">My path so far</h2>
+    <div class="rows">
+      <article class="row">
+        <span class="when" data-i18n="e2_y">Next</span>
+        <div>
+          <h3 data-i18n="e2_h">MSc in cybersecurity, my goal</h3>
+          <p data-i18n="e2_s">I regularly attend Hacking Evening with CyberSkills and PROSA at AAU Copenhagen.</p>
+        </div>
+      </article>
+      <article class="row">
+        <span class="when">2025–2028</span>
+        <div>
+          <h3 data-i18n="e1_h">BSc in Engineering (Software)</h3>
+          <p class="sub">Aalborg University Copenhagen</p>
+          <p data-i18n="e1_s">Third semester, expected to finish in June 2028. Courses include Databases and Software Architecture, Systems Development and Internetworking and Web Programming.</p>
+          <p class="grade" data-i18n="e1_g">Average 8.0 / 12</p>
+        </div>
+      </article>
+      <article class="row">
+        <span class="when">2025</span>
+        <div>
+          <h3>Københavns Åbne Gymnasium</h3>
+          <p data-i18n="e3_s">Upper secondary education. My Superliga database project in Informatik C was graded 12.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-in">
+    <div class="contact-top">
+      <div>
+        <p class="contact-k" data-i18n="contact_k">Thanks for having a look.</p>
+        <h2 data-i18n="h_contact"><span class="ln"><span>Let us</span></span> <span class="ln"><span><em>talk</em></span></span></h2>
+      </div>
+      <p class="contact-p" data-i18n="contact_p">I am looking for a student job of 10 to 15 hours a week in Greater Copenhagen, in software development, testing, data, IT support, cybersecurity or AI and automation. Email is the fastest way to reach me.</p>
+    </div>
+    <div class="c-rows">
+      <div class="c-row">
+        <span class="c-label" data-i18n="c_mail">Email</span>
+        <div class="c-main">
+          <a class="c-val" href="mailto:yasirteksen@hotmail.com">yasirteksen@hotmail.com</a>
+          <button class="copy-mail" id="copy-mail" type="button" data-mail="yasirteksen@hotmail.com"></button>
+        </div>
+      </div>
+      <a class="c-row" href="https://www.linkedin.com/in/yasirteksen" target="_blank" rel="noopener">
+        <span class="c-label">LinkedIn</span>
+        <span class="c-main"><span class="c-val">linkedin.com/in/yasirteksen</span><span class="c-go" aria-hidden="true">↗</span></span>
+      </a>
+      <a class="c-row" href="https://github.com/Teksen42" target="_blank" rel="noopener">
+        <span class="c-label">GitHub</span>
+        <span class="c-main"><span class="c-val">github.com/Teksen42</span><span class="c-go" aria-hidden="true">↗</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <span data-i18n="copy">© 2026 Yasir Lokman Teksen. All rights reserved.</span>
+    <span class="foot-right">
+      <span data-i18n="foot">Copenhagen</span>
+      <a href="#top"><span data-i18n="to_top">Back to top</span> ↑</a>
+    </span>
+  </div>
+</footer>
+
+<script src="main.js?v=42"></script>
+<script src="demos.js?v=42"></script>
+<!-- GoatCounter: privacy-friendly visitor stats, no cookies, no personal data -->
+<script data-goatcounter="https://teksen42.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
