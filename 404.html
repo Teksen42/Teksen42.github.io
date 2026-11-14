@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="description" content="This page does not exist on teksen42.github.io, the portfolio of software student Yasir Lokman Teksen.">
+<title>Page not found, Yasir Lokman Teksen</title>
+<link rel="icon" href="/favicon.ico">
+<script>
+  (function(){
+    var d = document.documentElement, t = null, l = null, tz = '';
+    try { t = localStorage.getItem('theme'); l = localStorage.getItem('lang'); } catch(e){}
+    if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    d.dataset.theme = t;
+    try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch(e){}
+    // same test as main.js on the front page: a stored choice, a Danish device or a Copenhagen clock
+    var da = l === 'da' || (l !== 'en' && ((navigator.languages || [navigator.language || '']).join(',').toLowerCase().indexOf('da') > -1 || tz === 'Europe/Copenhagen'));
+    if (da) { d.lang = 'da'; d.classList.add('da'); document.title = 'Siden findes ikke, Yasir Lokman Teksen'; }
+  })();
+</script>
+<style>
+/* Hallmark · 404 page: the portfolio's own parts only (glass nav pill with the name, section heading, the hero's two buttons, footer line) · tokens copied from tokens.css and studio.css · v2.0.0 */
+@font-face { font-family: "Geist"; src: url("/assets/fonts/studio/geist-var.woff2") format("woff2"); font-weight: 400 500; font-style: normal; font-display: swap; }
+:root {
+  --color-paper: oklch(97.4% 0.003 260); --color-paper-2: oklch(94.8% 0.004 260); --color-paper-hi: oklch(99.3% 0.002 260);
+  --color-ink: oklch(16% 0.01 265); --color-ink-2: oklch(36% 0.01 265); --color-muted: oklch(49% 0.01 265); --color-rule: oklch(88% 0.005 260);
+  --color-focus: oklch(76% 0.12 255);
+  --glass-edge: color-mix(in oklab, var(--color-ink) 9%, transparent);
+  --glass-bar: color-mix(in oklab, var(--color-paper-hi) 84%, transparent);
+  --font-body: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --text-sm: 0.875rem; --text-md: 1rem; --text-lead: clamp(1.125rem, 0.35vw + 1rem, 1.375rem); --text-section: clamp(2rem, 2.5vw + 1rem, 3.5rem);
+  --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px;
+  --gutter: 64px; --container: 1440px; --nav-h: 60px;
+  --dur-short: 200ms; --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  color-scheme: light;
+}
+[data-theme="dark"] {
+  --color-paper: oklch(21% 0.012 265); --color-paper-2: oklch(25% 0.013 265); --color-paper-hi: oklch(27% 0.013 265);
+  --color-ink: oklch(90% 0.006 260); --color-ink-2: oklch(77% 0.008 260); --color-muted: oklch(66% 0.01 260); --color-rule: oklch(33% 0.012 265);
+  --glass-edge: color-mix(in oklab, var(--color-ink) 14%, transparent);
+  --glass-bar: color-mix(in oklab, oklch(29% 0.014 265) 84%, transparent);
+  color-scheme: dark;
+}
+@media (max-width: 60rem) { :root { --gutter: 24px; } }
+@media (max-width: 40rem) { :root { --gutter: 16px; } }
+* { box-sizing: border-box; margin: 0; }
+html { background: var(--color-paper); overflow-x: clip; }
+body { overflow-x: clip; display: flex; flex-direction: column; min-height: 100svh; background: var(--color-paper); color: var(--color-ink); font-family: var(--font-body); font-size: var(--text-md); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+.da [lang="en"], html:not(.da) [lang="da"] { display: none; }
+.wrap { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); }
+
+/* the nav pill, as .nav-in with .brand */
+.nav { position: sticky; top: 0; z-index: 2; padding-top: var(--space-sm); }
+.nav-in { display: flex; align-items: center; height: var(--nav-h); padding-inline: var(--space-lg); border-radius: 999px; border: 1px solid var(--glass-edge); background: var(--glass-bar); -webkit-backdrop-filter: blur(24px) saturate(180%); backdrop-filter: blur(24px) saturate(180%); }
+.brand { font-size: var(--text-md); font-weight: 600; letter-spacing: -0.02em; color: var(--color-ink); text-decoration: none; white-space: nowrap; }
+
+/* the message, as a section heading with one sentence and the hero's two buttons */
+main { flex: 1; display: flex; flex-direction: column; justify-content: center; padding-block: var(--space-2xl); }
+h1 { font-synthesis: none; text-wrap: balance; max-width: 20ch; font-size: var(--text-section); font-weight: 600; line-height: 1.05; letter-spacing: -0.03em; }
+.lede { margin-top: var(--space-md); max-width: 40ch; font-size: var(--text-lead); color: var(--color-ink-2); }
+.actions { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin-top: var(--space-xl); }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 var(--space-lg); border: 1px solid var(--color-ink); border-radius: 999px; color: var(--color-ink); font-weight: 500; white-space: nowrap; text-decoration: none; transition: background-color var(--dur-short) var(--ease-out), border-color var(--dur-short) var(--ease-out); }
+.btn:hover { background: var(--color-paper-2); }
+.btn--primary { background: var(--color-ink); color: var(--color-paper-hi); }
+.btn--primary:hover { background: var(--color-ink-2); border-color: var(--color-ink-2); }
+.btn:active { transform: scale(0.97); }
+a:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }
+
+/* footer line, as .foot */
+footer { padding-block: var(--space-xl); border-top: 1px solid var(--color-rule); font-size: var(--text-sm); color: var(--color-muted); }
+@media (prefers-reduced-motion: reduce) { .btn { transition: none; } .btn:active { transform: none; } }
+</style>
+</head>
+<body>
+<header class="nav"><div class="wrap"><div class="nav-in">
+  <a class="brand" href="/">Yasir Lokman Teksen</a>
+</div></div></header>
+<main class="wrap">
+  <h1><span lang="en">This page does not exist</span><span lang="da">Siden findes ikke</span></h1>
+  <p class="lede"><span lang="en">The link may be old or mistyped.</span><span lang="da">Linket er måske gammelt eller skrevet forkert.</span></p>
+  <div class="actions">
+    <a class="btn btn--primary" href="/"><span lang="en">Go to the front page</span><span lang="da">Gå til forsiden</span></a>
+    <a class="btn" href="/#work"><span lang="en">See the projects</span><span lang="da">Se projekterne</span></a>
+  </div>
+</main>
+<footer><div class="wrap">© 2026 Yasir Lokman Teksen</div></footer>
+</body>
+</html>

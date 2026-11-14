@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="sitemap.css"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://teksen42.github.io/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <xhtml:nav class="nav-in"><xhtml:a class="brand" href="https://teksen42.github.io/">Yasir Lokman Teksen</xhtml:a><xhtml:a class="navlink" href="https://teksen42.github.io/">View portfolio</xhtml:a></xhtml:nav>
+    <xhtml:a class="row-link" href="https://teksen42.github.io/">Open the portfolio</xhtml:a>
+  </url>
+</urlset>

@@ -1,0 +1,25 @@
+# Yasir Lokman Teksen
+
+> Software student at Aalborg University Copenhagen (BSc in Engineering, Software), on 3rd semester. Looking for a student job of 10 to 15 hours a week in Greater Copenhagen: software development, testing, data, IT support, cybersecurity or AI and automation.
+
+This is his portfolio. The site is in English and Danish. It shows three projects, other study projects, his work at Bilka, his skills and ten certificates from 2026.
+
+## Portfolio
+
+- [Front page](https://teksen42.github.io/): projects, experience, skills, certificates and contact
+
+## Projects
+
+- [Kvixa](https://teksen42.github.io/#kvixa): Self-service kiosks and online ordering, used every day at a restaurant in Greve.
+- [Nabolys](https://teksen42.github.io/#nabolys): A preparedness app that gets a family, and soon the neighbours, ready for the first three days of a crisis.
+- [Weft](https://teksen42.github.io/#weft): One plan for work, study and training that rearranges itself when something moves.
+
+## Contact
+
+- [Email](mailto:yasirteksen@hotmail.com)
+- [LinkedIn](https://www.linkedin.com/in/yasirteksen)
+- [GitHub](https://github.com/Teksen42)
+
+## Optional
+
+- [Sitemap](https://teksen42.github.io/sitemap.xml)

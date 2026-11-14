@@ -1,0 +1,378 @@
+/* Nabolys, landingssiden. Samme valg som appen (docs/05-design.md og docs/research/ai-slop-design.md): forbillede er nødudstyr, togtavler
+   og offentlig skiltning. Varm papirfarve, mørk blæk og én orange signalfarve. Lister med tynde linjer, ikke kort. Hjørner på 4.
+   Ingen gradienter, ingen skygger (den eneste undtagelse er de to telefoner i rummet lige under forsiden) og ingen filer udefra.
+   Skrifterne er appens egne, så siden og skærmbillederne er ét produkt: Atkinson Hyperlegible Next til tekst, IBM Plex Mono til mærkater og tal. */
+@font-face { font-family: "Atkinson Hyperlegible Next"; src: url("fonts/AtkinsonHyperlegibleNext-Regular.ttf") format("truetype"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Atkinson Hyperlegible Next"; src: url("fonts/AtkinsonHyperlegibleNext-Bold.ttf") format("truetype"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "IBM Plex Mono"; src: url("fonts/IBMPlexMono-Medium.ttf") format("truetype"); font-weight: 500; font-style: normal; font-display: swap; }
+
+:root {
+  --ground: #F4F1EA;   /* papir */
+  --surface: #FFFFFF;
+  --sunken: #E9E5DB;
+  --hairline: #D9D4C7; /* linje */
+  --ink: #1B1F23;      /* blæk, 14,7:1 på papir */
+  --ink-2: #4A5058;    /* grafit, 7,2:1 på papir */
+  --ink-ph: #8C919B;
+  --action: #1B1F23;
+  --on-action: #FFFFFF;
+  --signal: #E8590C;   /* kun til det, man skal lægge mærke til */
+  --night: #0B0D0F;
+  --r-row: 4px;
+  --r-phone: 30px;
+
+  --font: "Atkinson Hyperlegible Next", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --col: 1080px;
+  color-scheme: light;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font);
+  font-size: 17px;
+  background: var(--ground);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-underline-offset: 3px; }
+button { font: inherit; }
+img { max-width: 100%; }
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+/* Sproget: begge sprog står i siden, og kun det, <html lang> siger, vises. Uden script er siden dansk. */
+html[lang="da"] [data-l="en"],
+html[lang="en"] [data-l="da"] { display: none; }
+html:not(.js) .lang-switch,
+html:not(.js) .waitlist,
+html:not(.js) .proto-actions,
+html:not(.js) .calc { display: none; }
+
+.wrap { max-width: var(--col); margin: 0 auto; padding: 0 20px; }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+/* ---------- typografi ---------- */
+h1 { font-size: clamp(36px, 5.4vw, 58px); line-height: 1.05; letter-spacing: -.02em; font-weight: 700; margin: 0 0 20px; max-width: 30ch; }
+h2 { font-size: clamp(28px, 3.6vw, 40px); line-height: 1.1; letter-spacing: -.015em; font-weight: 700; margin: 0 0 10px; }
+h3 { font-size: clamp(20px, 2vw, 24px); line-height: 1.25; letter-spacing: -.01em; font-weight: 700; margin: 0 0 10px; }
+.intro { font-size: 17px; line-height: 1.5; color: var(--ink-2); margin: 0; max-width: 56ch; }
+.label, .board-label, .tag { font-family: var(--mono); font-weight: 500; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink); }
+.label { margin-left: 10px; }
+.label.new { color: var(--signal); }
+.small { font-size: 15px; line-height: 1.6; color: var(--ink-2); margin: 20px 0 0; max-width: 64ch; }
+
+/* ---------- header ---------- */
+.top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 24px; padding-bottom: 24px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; font-size: 1.25rem; font-weight: 700; letter-spacing: -.01em; text-decoration: none; }
+.brand-mark { flex: none; color: var(--ink); }
+.brand-dot { fill: var(--signal); }
+
+.lang-switch { display: flex; gap: 4px; padding: 4px; background: var(--sunken); border-radius: var(--r-row); }
+.lang-switch button {
+  font-size: 15px; border: 0; background: none; color: var(--ink-2);
+  padding: 6px 12px; border-radius: var(--r-row); cursor: pointer; min-height: 32px;
+}
+.lang-switch button[aria-pressed="true"] { background: var(--surface); color: var(--ink); font-weight: 600; }
+
+/* ---------- hero ---------- */
+.hero { padding-top: 40px; text-align: center; display: flex; flex-direction: column; align-items: center; }
+.lead { font-size: clamp(17px, 2.2vw, 21px); line-height: 1.45; color: var(--ink-2); margin: 0 0 32px; max-width: 44ch; text-wrap: balance; }
+.lead strong { color: var(--ink); font-weight: 700; } /* de tre hovedting: blæk og fed, resten grafit */
+
+.waitlist { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; width: 100%; max-width: 520px; margin: 0; }
+.waitlist input[type="email"] {
+  flex: 1; min-width: 220px; min-height: 52px; padding: 12px 16px;
+  border: 1px solid var(--hairline); border-radius: var(--r-row);
+  background: var(--surface); color: var(--ink); font: inherit; font-size: 17px;
+}
+.waitlist input[type="email"]::placeholder { color: var(--ink-ph); }
+.waitlist input[type="email"]:focus { outline: 2px solid var(--ink); outline-offset: -2px; }
+.hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.cta {
+  min-height: 52px; padding: 12px 24px; border: 0; border-radius: var(--r-row);
+  background: var(--action); color: var(--on-action); font-size: 17px; font-weight: 700;
+  cursor: pointer; white-space: nowrap;
+}
+.cta:active { opacity: .75; }
+.cta[disabled] { opacity: .45; cursor: default; }
+
+.note { font-size: 15px; color: var(--ink-2); margin: 14px 0 0; max-width: 44ch; text-wrap: balance; }
+.status { min-height: 1.5em; }
+.status.is-error { color: #B3261E; }
+
+/* ---------- telefonrammer ---------- */
+/* En moderne telefon tegnet i CSS: tynd mørk kant, en lille ø, en statuslinje (10.00, signal, batteri) og en hjemmestreg nederst.
+   Skærmen (.scr) har altid en telefonskærms mål (390 × 844: statuslinje 54 og billede 790), er rundet og klipper det, der er
+   udenfor. Billedet ligger øverst, og nederst toner skærmen blødt over i baggrunden, så indhold, der fortsætter, ikke ser klippet ud.
+   Hele skærmen kan rulles i telefonen under "Se appen". Målene inde i rammen følger rammens bredde (cqw, .shot er container);
+   rammens egen runding er procent af dens egne mål (11,5 % af bredden er det samme antal punkter som 5,5 % af højden).
+   Mangler billedet (før scripts/screenshots.mjs er kørt), får rammen .is-missing (skaerme.js) og viser skærmens navn i en tom telefon. */
+.shot {
+  position: relative; display: inline-flex; flex-direction: column; margin: 0; padding: 0; container-type: inline-size;
+  border-radius: 11.5% / 4.98%; background: #F7F6F3; box-shadow: inset 0 0 0 1px #C9C4B8;
+}
+.scr {
+  --screen: var(--ground); --screen-ink: var(--ink);
+  position: relative; display: flex; flex-direction: column; margin: 2.8cqw; padding-bottom: 8.7cqw; aspect-ratio: 390 / 932; overflow: hidden;
+  border-radius: 8.7cqw; background: var(--screen); color: var(--screen-ink);
+}
+.scr > * { min-width: 0; }
+.scr::after { content: ""; position: absolute; left: 50%; bottom: 3.7cqw; z-index: 3; width: 34cqw; height: 1.3cqw; border-radius: 1cqw; transform: translateX(-50%); background: var(--screen-ink); opacity: .85; pointer-events: none; }
+.shot.dark .scr, .scr:has(> img[data-bar="dark"]), .proto[data-bar="dark"] .scr { --screen: var(--night); --screen-ink: #F4F1EA; --island: #000; }
+/* Det sikre område nederst har samme farve som bunden af skærmbilledet (data-foot fra scripts/screenshots.mjs). */
+.scr { --foot: var(--ground); }
+.scr:has(> img[data-foot="dark"]), .shot.foot-dark .scr, .proto[data-foot="dark"] .scr { --foot: var(--night); }
+.scr { background: var(--foot); }
+.scr > .sb { background: var(--screen); }
+.scr > img, .screens { background: var(--screen); }
+.sb {
+  position: relative; flex: none; display: flex; align-items: flex-end; justify-content: space-between; aspect-ratio: 390 / 54;
+  padding: 0 7cqw 1.6cqw; font-size: 4.2cqw; font-weight: 700; letter-spacing: -.01em; line-height: 1;
+}
+.sb::before { content: ""; position: absolute; top: 3.6cqw; left: 50%; transform: translateX(-50%); width: 28cqw; height: 7.4cqw; border-radius: 4cqw; background: var(--island, var(--ink)); }
+.sb-right { display: inline-flex; align-items: center; gap: 1.6cqw; }
+.plane { display: none; width: 4.4cqw; height: 4.4cqw; }
+.plane svg { display: block; width: 100%; height: 100%; }
+.shot.net-off .plane, .proto[data-net="off"] .plane { display: inline-block; }
+.shot.net-off .sig, .proto[data-net="off"] .sig { display: none; }
+.sig { display: inline-block; width: 5cqw; height: 3.4cqw; background: currentColor;
+  clip-path: polygon(0 100%, 0 55%, 20% 55%, 20% 100%, 27% 100%, 27% 37%, 47% 37%, 47% 100%, 54% 100%, 54% 18%, 74% 18%, 74% 100%, 81% 100%, 81% 0, 100% 0, 100% 100%); }
+.bat { position: relative; display: inline-block; width: 7cqw; height: 3.6cqw; border: .45cqw solid currentColor; border-radius: 1.3cqw; opacity: .9; }
+.bat::before { content: ""; position: absolute; inset: .55cqw; right: 1.4cqw; border-radius: .6cqw; background: currentColor; }
+.bat::after { content: ""; position: absolute; right: -1.3cqw; top: 25%; width: .7cqw; height: 50%; border-radius: 0 .4cqw .4cqw 0; background: currentColor; opacity: .6; }
+.scr > img { display: block; width: 100%; height: auto; flex: none; object-fit: cover; object-position: top; -webkit-user-select: none; user-select: none; }
+.phone-fallback {
+  display: none; flex: 1 1 auto; min-height: 0; margin: 0; background: var(--sunken);
+  align-items: center; justify-content: center; text-align: center; padding: 16px;
+  font-size: 16px; font-weight: 600; color: var(--ink-2);
+}
+.shot.is-missing .scr > img { display: none; }
+.shot.is-missing .phone-fallback { display: flex; }
+
+/* ---------- fire telefoner ved siden af hinanden, lige efter forsiden: lys ramme, blød skygge, ingen vrid (skarpe skærme).
+   Den eneste skygge på siden. På smalle skærme ruller rækken sidelæns og snapper. ---------- */
+.strip .shot { box-shadow: 0 34px 48px -30px rgba(18, 20, 28, .38), inset 0 0 0 1px #C9C4B8; }
+@media (min-width: 760px) { .strip li:nth-child(even) { margin-top: 36px; } }
+
+.strip-wrap { padding-top: 56px; }
+.strip { display: flex; gap: 20px; justify-content: center; align-items: flex-start; margin: 0; padding: 0 0 8px; list-style: none; }
+.strip li { flex: 0 1 auto; display: flex; flex-direction: column; align-items: center; min-width: 0; }
+.strip .shot { width: clamp(150px, 16vw, 232px); }
+.strip figcaption { margin-top: 12px; font-size: 15px; line-height: 1.4; color: var(--ink-2); text-align: center; max-width: 24ch; }
+@media (max-width: 759px) {
+  .strip-wrap { padding-top: 40px; }
+  .strip { justify-content: flex-start; overflow-x: auto; scroll-snap-type: x mandatory; gap: 16px; padding: 4px 20px 12px; margin: 0 -20px; scrollbar-width: thin; }
+  .strip li { flex: 0 0 auto; scroll-snap-align: center; }
+  .strip .shot { width: min(62vw, 240px); }
+}
+
+/* ---------- det kan Nabolys: fem rækker, billede og tekst skiftevis ---------- */
+.features { padding-top: 88px; max-width: 980px; }
+.feature { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; align-items: center; padding: 32px 0; }
+.feature-text h3 { margin-bottom: 8px; }
+.feature-text p { margin: 0; font-size: 18px; line-height: 1.5; color: var(--ink-2); max-width: 46ch; }
+.feature-shot { display: flex; justify-content: center; align-items: center; }
+.feature .shot { width: clamp(180px, 50vw, 230px); }
+@media (min-width: 760px) {
+  .features { padding-top: 104px; }
+  .feature { grid-template-columns: minmax(0, 1fr) 340px; gap: 48px; padding: 40px 0; }
+  .feature.flip { grid-template-columns: 340px minmax(0, 1fr); }
+  .feature.flip .feature-shot { order: -1; }
+  .feature-text p { font-size: 19px; }
+}
+
+/* ---------- se appen: knappen og fanerne til venstre, én telefon til højre. Hele blokken kan være i ét vindue (1440 × 900).
+   Bunden bliver mørk, når nettet er slået fra ---------- */
+.proto {
+  --pb: var(--sunken); --pt: var(--ink); --pt2: var(--ink-2); --pl: #CDC7B7;
+  background: var(--pb); color: var(--pt);
+  margin-top: 56px; padding: 32px 0 36px;
+  transition: background-color .4s ease, color .4s ease;
+}
+.proto[data-net="off"] { --pb: var(--night); --pt: #F4F1EA; --pt2: #C4BFB3; --pl: #2E3338; }
+.proto-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; align-items: center; justify-items: stretch; }
+.proto h2 { margin-bottom: 6px; }
+.proto .intro { color: var(--pt2); margin-bottom: 12px; max-width: 44ch; font-size: 16px; }
+.proto-actions { margin: 0 0 14px; }
+.netswitch {
+  display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 16px; border: 0; cursor: pointer;
+  background: var(--signal); color: var(--ink); font-size: 15.5px; font-weight: 700; border-radius: var(--r-row);
+}
+.netswitch:active { opacity: .8; }
+.proto[data-net="off"] .netswitch { background: #F4F1EA; }
+.ns-dot { width: 14px; height: 14px; border-radius: 50%; background: var(--ink); }
+.netswitch[aria-pressed="true"] .ns-dot { background: transparent; box-shadow: inset 0 0 0 2px var(--ink); }
+.netswitch .ns-on, .netswitch[aria-pressed="true"] .ns-off { display: none; }
+.netswitch[aria-pressed="true"] .ns-on { display: inline; }
+.proto-tabs { list-style: none; margin: 0; padding: 0; max-width: 480px; }
+.proto-tabs li { border-top: 1px solid var(--pl); }
+.proto-tabs li:last-child { border-bottom: 1px solid var(--pl); }
+.proto-tabs button {
+  display: block; width: 100%; text-align: left; background: none; border: 0; cursor: pointer;
+  font-size: 16px; font-weight: 600; letter-spacing: -.01em; line-height: 1.2; padding: 6px 0; color: var(--pt2);
+}
+.proto-tabs button:hover, .proto-tabs li.on button { color: var(--pt); }
+.proto[data-net="off"] .label { color: var(--pt); }
+.proto[data-net="off"] .label.new { color: var(--signal); }
+.proto-tabs li.on button::before { content: ""; display: inline-block; width: 10px; height: 10px; background: var(--signal); margin-right: 10px; vertical-align: .05em; }
+.proto-tabs button .label { font-size: 13px; }
+.proto-tabs p { display: none; font-size: 14px; line-height: 1.4; color: var(--pt2); margin: 0; padding: 0 0 8px 20px; max-width: 40ch; }
+.proto-tabs li.on p { display: block; }
+
+.phone-col { justify-self: center; text-align: center; }
+.phone { --h: min(calc(100vh - 170px), 880px); width: calc(var(--h) / 2.23); max-width: 86vw; display: inline-flex; text-align: left; }
+.screens { position: relative; flex: 1 1 auto; min-height: 0; overflow: hidden; }
+/* Hver skærm kan rulles i telefonen, for billedet er hele skærmen i fuld højde. Appens menu (.faner) ligger fast nederst, som på en telefon. */
+.screen { position: absolute; inset: 0; margin: 0; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: none; visibility: hidden; opacity: 0; transition: opacity .16s ease; }
+.screen::-webkit-scrollbar { display: none; } /* ingen rullebjælke i telefonen; man ruller med fingeren eller hjulet */
+.screen.on { visibility: visible; opacity: 1; }
+.screen img { display: block; width: 100%; height: auto; }
+.screen-body { position: relative; }
+.screen.has-faner .screen-body { margin-bottom: 19cqw; }
+.screen .phone-fallback { position: absolute; inset: 0; }
+.screen.is-missing img { display: none; }
+.screen.is-missing .phone-fallback { display: flex; }
+.faner { display: none; position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; width: 100%; height: auto; pointer-events: none; }
+.faner.on { display: block; }
+.hot { position: absolute; margin: 0; padding: 0; border: 0; border-radius: var(--r-row); background: transparent; cursor: pointer; }
+.hot:active { background: rgba(27, 31, 35, .08); }
+.hot:focus-visible { outline: 2px solid var(--signal); outline-offset: -2px; }
+.faner-hot { position: absolute; left: 0; right: 0; bottom: 0; z-index: 3; }
+.faner-hot[hidden] { display: none; }
+.phone-hint { margin: 10px 0 0; font-size: 14px; color: var(--pt2); }
+.net-note { min-height: 1.6em; margin: 12px 0 0; font-size: 14px; color: var(--pt2); opacity: 0; transition: opacity .25s ease; }
+.net-note.on { opacity: 1; }
+@media (min-width: 760px) {
+  .proto-grid { grid-template-columns: minmax(0, 1fr) auto; gap: 56px; }
+}
+@media (max-width: 759px) {
+  .phone { --h: min(78vh, 700px); }
+}
+@media (max-width: 768px), (pointer: coarse) {
+  .lang-switch button { min-height: 44px; padding: 6px 14px; }
+  .proto-tabs button { min-height: 44px; padding: 10px 0; }
+  .calc-toggle, .netswitch, .cta { min-height: 48px; }
+}
+@media (pointer: coarse) and (min-width: 760px) {
+  .proto-tabs { display: grid; grid-template-columns: 1fr 1fr; column-gap: 28px; max-width: 560px; }
+  .proto-tabs li { border-top: 0; border-bottom: 1px solid var(--pl); }
+  .proto-tabs li:first-child, .proto-tabs li:nth-child(2) { border-top: 1px solid var(--pl); }
+}
+
+/* ---------- 3-døgnslisten: samme tal som i appen ---------- */
+.calc { padding-top: 88px; }
+.calc-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; margin-top: 28px; align-items: start; }
+.stepper { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 0; border-top: 1px solid var(--hairline); }
+.stepper:last-of-type { border-bottom: 1px solid var(--hairline); }
+.st-name { font-size: 17px; font-weight: 500; }
+.st-ctl { display: flex; align-items: center; gap: 8px; }
+.st-ctl button {
+  width: 44px; height: 44px; border: 2px solid var(--ink); border-radius: var(--r-row); background: none; color: var(--ink);
+  font-size: 24px; font-weight: 600; line-height: 1; cursor: pointer;
+}
+.st-ctl button:active:not(:disabled) { background: var(--ink); color: var(--on-action); }
+.st-ctl button:disabled { opacity: .28; cursor: default; }
+.st-ctl output { min-width: 32px; text-align: center; font-family: var(--mono); font-size: 22px; font-weight: 500; }
+.st-check { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--hairline); font-size: 17px; cursor: pointer; }
+.st-check input { width: 22px; height: 22px; flex: none; accent-color: var(--ink); margin: 0; }
+.calc-side { display: grid; gap: 24px; align-self: center; min-width: 0; }
+.big3 { display: grid; grid-template-columns: repeat(3, auto); justify-content: space-between; gap: 12px 24px; }
+.big3 strong { display: block; font-family: var(--mono); font-size: clamp(28px, 3.6vw, 48px); line-height: 1; font-weight: 500; letter-spacing: -.02em; white-space: nowrap; }
+.big3 strong small { font-family: var(--font); font-size: max(.45em, 14px); font-weight: 700; letter-spacing: 0; }
+.big3 span { display: block; font-size: 15px; color: var(--ink-2); margin-top: 6px; }
+.calc-toggle {
+  justify-self: start; display: inline-flex; align-items: center; min-height: 48px; padding: 0 18px;
+  border: 2px solid var(--ink); border-radius: var(--r-row); background: none; color: var(--ink);
+  font-size: 16px; font-weight: 600; cursor: pointer;
+}
+.calc-toggle .ct-close, .calc-toggle[aria-expanded="true"] .ct-open { display: none; }
+.calc-toggle[aria-expanded="true"] .ct-close { display: inline; }
+.calc-full { margin-top: 32px; }
+.calc-full[hidden] { display: none; }
+.calc-groups { columns: 1; column-gap: 32px; }
+.calc-group { break-inside: avoid; margin: 0 0 24px; }
+.calc-group h3 { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin: 0; padding-bottom: 6px; border-bottom: 2px solid var(--ink); }
+.calc-group h3 span { font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--ink); }
+.calc-group h3 em { font-style: normal; font-weight: 500; font-size: 13px; line-height: 1.25; color: var(--ink-2); text-align: right; }
+.calc-intro { font-size: 14px; line-height: 1.4; color: var(--ink-2); margin: 0; padding-top: 8px; }
+.calc-list { list-style: none; margin: 0; padding: 0; }
+.calc-list li { padding: 7px 0; border-bottom: 1px solid var(--hairline); }
+.cl-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-size: 15px; line-height: 1.3; }
+.cl-top b { font-family: var(--mono); font-weight: 500; font-size: 14px; white-space: nowrap; flex: none; }
+.cl-own { font-size: 13px; font-weight: 700; color: #B5430A; margin: 3px 0 0; }
+.cl-note { font-size: 13.5px; line-height: 1.4; color: var(--ink-2); margin: 3px 0 0; }
+.calc-src { font-size: 16px; line-height: 1.6; color: var(--ink-2); margin: 32px 0 0; max-width: 72ch; }
+@media (min-width: 640px) { .calc-groups { columns: 2; } }
+@media (min-width: 760px) { .calc-grid { grid-template-columns: minmax(240px, 3fr) minmax(0, 7fr); gap: 56px; } }
+@media (min-width: 960px) { .calc-groups { columns: 3; } }
+
+/* ---------- kun jeres familie kan læse med: en tavle på papiret. Én tyk linje, tynde linjer mellem rækkerne, mærkat i mono ---------- */
+.privacy { padding-top: 88px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px 56px; align-items: start; }
+.privacy .intro { margin-bottom: 0; }
+.privacy .small { margin-top: 24px; }
+@media (min-width: 960px) { .privacy { grid-template-columns: 5fr 7fr; } .privacy-board { padding-top: 10px; } }
+.board { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
+.board li { display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px 24px; padding: 14px 0; border-bottom: 1px solid var(--hairline); align-items: baseline; }
+.board li p { margin: 0; font-size: 17px; line-height: 1.5; max-width: 60ch; }
+.board .board-label { padding-top: 3px; }
+@media (min-width: 640px) { .board li { grid-template-columns: 140px minmax(0, 1fr); } }
+.board li p { max-width: none; }/* Kildelisten har ingen mærkat i rækkerne, så linket skal have hele bredden. */
+
+/* ---------- på vej ---------- */
+.later { padding-top: 88px; }
+.later p { margin: 0; font-size: 18px; line-height: 1.5; color: var(--ink-2); max-width: 52ch; }
+.later p strong { color: var(--ink); }
+
+/* ---------- butiksmærker ---------- */
+/* margin: 0 auto, ikke 0: ellers bliver .wrap-boksen stående til venstre på brede skærme, og mærkerne kommer ud af midten. */
+.stores-section { padding-top: 72px; }
+/* Begge knapper lige brede (som den bredeste): side om side, eller under hinanden på en smal skærm. */
+.stores { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 12px; width: fit-content; padding: 16px 0 8px; margin: 0 auto; list-style: none; }
+@media (max-width: 559px) { .stores { grid-auto-flow: row; } }
+.badge {
+  display: inline-flex; align-items: center; gap: 10px; padding: 10px 18px; border-radius: var(--r-row);
+  background: var(--action); color: var(--on-action); min-height: 56px; cursor: default;
+}
+.badge svg { flex: none; }
+.badge .t { display: flex; flex-direction: column; line-height: 1.15; text-align: left; }
+.badge .t small { font-size: 13px; letter-spacing: .02em; opacity: .9; }
+.badge .t strong { font-size: 18px; font-weight: 600; letter-spacing: -.01em; }
+.storenote { text-align: center; font-size: 15px; color: var(--ink-2); margin: 0; padding: 16px 0 72px; }
+.storenote a { color: var(--ink); font-weight: 600; }
+
+/* ---------- bund ---------- */
+.foot { border-top: 1px solid var(--hairline); padding: 24px 0 48px; font-size: 15px; color: var(--ink-2); text-align: center; }
+.foot p { margin: 4px 0; }
+.emergency { margin-bottom: 16px; }
+.emergency-line { font-weight: 600; color: var(--ink); }
+.disclaimer { font-size: 14px; }
+
+/* ---------- lange tekster (privatlivspolitikken) ---------- */
+/* Privatlivspolitikken: én læsespalte i midten af siden, ikke klistret til venstre i den brede .wrap. */
+.doc { max-width: 760px; margin-left: auto; margin-right: auto; padding-top: 24px; padding-bottom: 56px; }
+.doc article { max-width: none; margin-top: 8px; }
+.doc h1 { font-size: clamp(30px, 4.5vw, 44px); line-height: 1.15; margin: 0 0 16px; max-width: none; }
+.doc h2 { font-size: clamp(22px, 3vw, 27px); line-height: 1.25; margin: 44px 0 12px; letter-spacing: -.01em; }
+.doc h3 { font-size: 19px; line-height: 1.3; margin: 32px 0 8px; }
+.doc p, .doc li { font-size: 17px; line-height: 1.6; }
+.doc p { margin: 0 0 14px; }
+.doc ul { margin: 0 0 18px; padding-left: 22px; }
+.doc li { margin: 0 0 8px; }
+.doc .draft { display: inline-block; padding: 6px 12px; border: 1px solid var(--hairline); border-radius: var(--r-row); background: var(--sunken); font-size: 15px; }
+.doc .back { margin: 0 0 12px; font-size: 16px; }
+.doc .back a { display: inline-block; padding: 8px 0; font-weight: 600; }
+.doc article + .back { margin-top: 40px; }
+
+/* ---------- 404 ---------- */
+.missing { padding-top: 56px; padding-bottom: 72px; text-align: center; display: flex; flex-direction: column; align-items: center; }
+.missing h1 { font-size: clamp(28px, 4vw, 40px); }
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } html { scroll-behavior: auto; } }

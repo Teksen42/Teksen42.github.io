@@ -1,0 +1,24 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Yasir Lokman Teksen",
+    "documentationUrl": "https://teksen42.github.io/"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:teksen42.github.io:portfolio:yasir-lokman-teksen",
+      "displayName": "Yasir Lokman Teksen, portfolio",
+      "type": "text/html",
+      "url": "https://teksen42.github.io/",
+      "description": "Portfolio of Yasir Lokman Teksen, software student at Aalborg University Copenhagen. Projects (Kvixa, Nabolys, Weft), skills, ten certificates from 2026 and contact details. Looking for a student job in IT.",
+      "tags": ["portfolio", "software student", "student job", "Copenhagen", "Aalborg University"],
+      "representativeQueries": [
+        "portfolio of a software student in Copenhagen",
+        "software student looking for a student job in IT",
+        "who is Yasir Lokman Teksen",
+        "how do I contact Yasir Lokman Teksen"
+      ],
+      "updatedAt": "2026-11-13T00:00:00Z"
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+/* Hallmark · sitemap view: the portfolio's own parts only (glass nav pill, section heading, contact row, footer line) · tokens copied from tokens.css and studio.css · v2.0.0 */
+/* sitemap.xml in a browser. Search engines read the XML and ignore this. In an XML document :root is <urlset>.
+   The nav and the row link are XHTML elements inside <url>, where the sitemap schema allows other namespaces.
+   No transform on <url>: it would trap the fixed nav inside the row. */
+@font-face { font-family: "Geist"; src: url("assets/fonts/studio/geist-var.woff2") format("woff2"); font-weight: 400 500; font-style: normal; font-display: swap; }
+
+:root {
+  --color-paper: oklch(97.4% 0.003 260); --color-paper-2: oklch(94.8% 0.004 260); --color-paper-3: oklch(91.5% 0.005 260); --color-paper-hi: oklch(99.3% 0.002 260);
+  --color-ink: oklch(16% 0.01 265); --color-ink-2: oklch(36% 0.01 265); --color-muted: oklch(49% 0.01 265); --color-rule: oklch(88% 0.005 260);
+  --color-focus: oklch(76% 0.12 255);
+  --glass-edge: color-mix(in oklab, var(--color-paper-hi) 80%, transparent);
+  --glass-bar: color-mix(in oklab, var(--color-paper-hi) 84%, transparent);
+  --font-body: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --text-sm: 0.875rem; --text-md: 1rem; --text-lg: 1.25rem; --text-section: clamp(2rem, 2.5vw + 1rem, 3.5rem); --text-row: clamp(1.5rem, 2.6vw, 2.5rem);
+  --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px;
+  --gutter: 64px; --container: 1440px; --gap-columns: 32px; --radius-glass: 28px; --nav-h: 60px; --arrow-size: 26px;
+  --dur-short: 200ms; --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 17L17 7M8 7h9v9'/%3E%3C/svg%3E");
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-paper: oklch(21% 0.012 265); --color-paper-2: oklch(25% 0.013 265); --color-paper-3: oklch(29% 0.014 265); --color-paper-hi: oklch(27% 0.013 265);
+    --color-ink: oklch(90% 0.006 260); --color-ink-2: oklch(77% 0.008 260); --color-muted: oklch(66% 0.01 260); --color-rule: oklch(33% 0.012 265);
+    --glass-edge: color-mix(in oklab, var(--color-ink) 14%, transparent);
+    --glass-bar: color-mix(in oklab, var(--color-paper-3) 84%, transparent);
+  }
+}
+@media (max-width: 60rem) { :root { --gutter: 24px; } }
+@media (max-width: 40rem) { :root { --gutter: 16px; --gap-columns: 16px; --arrow-size: 22px; } }
+
+urlset {
+  display: flex; flex-direction: column; min-height: 100vh; box-sizing: border-box;
+  padding: calc(var(--nav-h) + var(--space-sm) + var(--space-2xl) + var(--space-xl)) var(--gutter) 0;
+  background: var(--color-paper); color: var(--color-ink);
+  font-family: var(--font-body); font-size: var(--text-md); line-height: 1.5; font-synthesis: none; -webkit-font-smoothing: antialiased;
+}
+
+/* section heading, as .sect h2 */
+urlset::before {
+  content: "Sitemap"; display: block; width: 100%; max-width: calc(var(--container) - 2 * var(--gutter)); margin-inline: auto;
+  font-size: var(--text-section); font-weight: 600; line-height: 1.05; letter-spacing: -0.03em;
+}
+
+/* one row per page, as .c-row: label, value, arrow */
+url {
+  position: relative; display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr) var(--space-xl); align-items: center; column-gap: var(--gap-columns);
+  width: 100%; max-width: calc(var(--container) - 2 * var(--gutter)); box-sizing: border-box; margin: var(--space-2xl) auto 0;
+  padding: var(--space-lg) var(--space-xl); border-radius: var(--radius-glass);
+  background: var(--color-paper-2); transition: background-color var(--dur-short) var(--ease-out);
+}
+url + url { margin-top: var(--space-sm); }
+url:last-of-type { margin-bottom: var(--space-2xl); }
+url:hover { background: var(--color-paper-3); }
+lastmod { grid-column: 1; grid-row: 1; font-size: var(--text-md); font-weight: 500; color: var(--color-muted); }
+lastmod::before { content: "Updated "; }
+loc { grid-column: 2; grid-row: 1; font-size: var(--text-row); font-weight: 600; line-height: 1.1; letter-spacing: -0.03em; overflow-wrap: anywhere; min-width: 0; }
+changefreq, priority { display: none; }
+
+/* the whole row is the link; its arrow sits in the third column, as a.c-row::after */
+[class="row-link"] { position: absolute; inset: 0; border-radius: inherit; font-size: 0; color: transparent; text-decoration: none; }
+[class="row-link"]::after {
+  content: ""; position: absolute; right: var(--space-xl); top: 50%; width: var(--arrow-size); height: var(--arrow-size); transform: translateY(-50%);
+  background: var(--color-ink); -webkit-mask: var(--arrow) center / contain no-repeat; mask: var(--arrow) center / contain no-repeat;
+  transition: transform var(--dur-short) var(--ease-out);
+}
+url:hover [class="row-link"]::after { transform: translate(3px, calc(-50% - 3px)); }
+
+/* the nav pill, as .nav-in with .brand and a nav link */
+[class="nav-in"] {
+  position: fixed; z-index: 2; top: var(--space-sm); left: var(--gutter); right: var(--gutter); max-width: calc(var(--container) - 2 * var(--gutter)); margin-inline: auto;
+  box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; gap: var(--space-lg);
+  height: var(--nav-h); padding: 0 var(--space-lg);
+  border-radius: 999px; border: 1px solid var(--glass-edge); background: var(--glass-bar);
+  -webkit-backdrop-filter: blur(24px) saturate(180%); backdrop-filter: blur(24px) saturate(180%);
+}
+[class="brand"] { font-size: var(--text-md); font-weight: 600; letter-spacing: -0.02em; color: var(--color-ink); text-decoration: none; white-space: nowrap; }
+[class="navlink"] {
+  font-size: var(--text-sm); font-weight: 500; color: var(--color-ink-2); text-decoration: none; white-space: nowrap;
+  padding-block: var(--space-xs); border-bottom: 1px solid transparent; transition: color var(--dur-short) var(--ease-out), border-color var(--dur-short) var(--ease-out);
+}
+[class="navlink"]:hover { color: var(--color-ink); border-bottom-color: var(--color-ink); }
+[class="brand"]:focus-visible, [class="navlink"]:focus-visible, [class="row-link"]:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }
+
+/* footer line, as .foot */
+urlset::after {
+  content: "© 2026 Yasir Lokman Teksen"; display: block; width: 100%; max-width: calc(var(--container) - 2 * var(--gutter)); margin: auto auto 0;
+  padding-block: var(--space-xl); border-top: 1px solid var(--color-rule); font-size: var(--text-sm); color: var(--color-muted);
+}
+
+@media (max-width: 40rem) {
+  urlset { padding-top: calc(var(--nav-h) + var(--space-sm) + var(--space-xl)); }
+  url { grid-template-columns: minmax(0, 1fr) var(--arrow-size); row-gap: var(--space-xs); padding: var(--space-md) var(--space-lg); }
+  loc { grid-column: 1; grid-row: 2; font-size: var(--text-lg); }
+  [class="row-link"]::after { right: var(--space-lg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  url, [class="row-link"]::after, [class="navlink"] { transition: none; }
+}
